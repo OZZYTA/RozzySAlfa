@@ -1,0 +1,401 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID PQR -->
+		<div class="form-group pqr-consecutivo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID PQR</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(consecutivo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Oficio -->
+		<div class="form-group pqr-oficio" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Oficio</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(oficio)%%></div>
+			</div>
+		</div>
+		<!-- Field: Tipo de Doc -->
+		<div class="form-group pqr-tipoid" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tipo de Doc</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipoid)%%></div>
+			</div>
+		</div>
+		<!-- Field: Pa&#237;s de procedencia del documento -->
+		<div class="form-group pqr-procedencia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Pa&#237;s de procedencia del documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(procedencia)%%></div>
+			</div>
+		</div>
+		<!-- Field: Numero de Identificaci&#243;n: -->
+		<div class="form-group pqr-doc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Numero de Identificaci&#243;n:</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(doc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombres -->
+		<div class="form-group pqr-nombres" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombres</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombres)%%></div>
+			</div>
+		</div>
+		<!-- Field: Apellidos -->
+		<div class="form-group pqr-apellidos" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Apellidos</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(apellidos)%%></div>
+			</div>
+		</div>
+		<!-- Field: Genero -->
+		<div class="form-group pqr-genero" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Genero</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(genero)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nacimiento -->
+		<div class="form-group pqr-nacimiento" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nacimiento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(nacimiento)%%></div>
+			</div>
+		</div>
+		<!-- Field: Edad -->
+		<div class="form-group pqr-edad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Edad</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(edad)%%></div>
+			</div>
+		</div>
+		<!-- Field: Direccion -->
+		<div class="form-group pqr-direccion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Direccion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(direccion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Barrio -->
+		<div class="form-group pqr-barrio" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Barrio</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="barrio<%%RND1%%>"><%%COMBOTEXT(barrio)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Comuna -->
+		<div class="form-group pqr-comuna" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Comuna</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(comuna)%%></div>
+			</div>
+		</div>
+		<!-- Field: Telefono -->
+		<div class="form-group pqr-telefono" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(telefono)%%></div>
+			</div>
+		</div>
+		<!-- Field: No tiene telefono -->
+		<div class="form-group pqr-notel" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">No tiene telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="notel" id="notel" value="1" <%%CHECKED(notel)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Correo Electr&#243;nico -->
+		<div class="form-group pqr-correo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Correo Electr&#243;nico</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(correo)%%></div>
+			</div>
+		</div>
+		<!-- Field: No tiene correo electr&#243;nico -->
+		<div class="form-group pqr-nocorreo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">No tiene correo electr&#243;nico</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="nocorreo" id="nocorreo" value="1" <%%CHECKED(nocorreo)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: PQR SAC? -->
+		<div class="form-group pqr-sac" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">PQR SAC?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="sac" id="sac" value="1" <%%CHECKED(sac)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Asunto -->
+		<div class="form-group pqr-tipopqr" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asunto</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipopqr)%%></div>
+			</div>
+		</div>
+		<!-- Field: Poblacion -->
+		<div class="form-group pqr-poblacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Poblacion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(poblacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Regimen -->
+		<div class="form-group pqr-regimen" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="regimen<%%RND1%%>"><%%COMBOTEXT(regimen)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: EPS -->
+		<div class="form-group pqr-eps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="eps<%%RND1%%>"><%%COMBOTEXT(eps)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Otra EPS -->
+		<div class="form-group pqr-otraeps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Otra EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(otraeps)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gerente de la EPS -->
+		<div class="form-group pqr-gerente" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gerente de la EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="gerente<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: PQR presentada por Acudiente? -->
+		<div class="form-group pqr-acudiente" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">PQR presentada por Acudiente?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="acudiente" id="acudiente" value="1" <%%CHECKED(acudiente)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Nombre Completo del Acudiente -->
+		<div class="form-group pqr-nombreacu" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombre Completo del Acudiente</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombreacu)%%></div>
+			</div>
+		</div>
+		<!-- Field: Numero de Documento del Acudiente -->
+		<div class="form-group pqr-docacudiente" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Numero de Documento del Acudiente</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(docacudiente)%%></div>
+			</div>
+		</div>
+		<!-- Field: Referencia de la Queja -->
+		<div class="form-group pqr-ref" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Referencia de la Queja</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ref)%%></div>
+			</div>
+		</div>
+		<!-- Field: Motivo -->
+		<div class="form-group pqr-motivo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Motivo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="motivo<%%RND1%%>"><%%COMBOTEXT(motivo)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Observaci&#243;n Motivo -->
+		<div class="form-group pqr-obmotivo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Observaci&#243;n Motivo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="obmotivo<%%RND1%%>"><%%COMBOTEXT(obmotivo)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Fecha del Incidente/Solicitud -->
+		<div class="form-group pqr-fechainc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha del Incidente/Solicitud</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechainc)%%></div>
+			</div>
+		</div>
+		<!-- Field: IPS o Farmacia prestadora del servicio -->
+		<div class="form-group pqr-servicio" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">IPS o Farmacia prestadora del servicio</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="servicio<%%RND1%%>"><%%COMBOTEXT(servicio)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Enfermedad o patologia -->
+		<div class="form-group pqr-enfermedad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Enfermedad o patologia</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="enfermedad<%%RND1%%>"><%%COMBOTEXT(enfermedad)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Descripcion -->
+		<div class="form-group pqr-descripcion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Descripcion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(descripcion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Estado -->
+		<div class="form-group pqr-estado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Estado</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(estado)%%></div>
+			</div>
+		</div>
+		<!-- Field: Condicion -->
+		<div class="form-group pqr-condicion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Condicion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(condicion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha de Cierre -->
+		<div class="form-group pqr-cierre" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha de Cierre</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(cierre)%%></div>
+			</div>
+		</div>
+		<!-- Field: Conclusi&#243;n al Cierre: -->
+		<div class="form-group pqr-conclusion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Conclusi&#243;n al Cierre:</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(conclusion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Indicador -->
+		<div class="form-group pqr-indicador" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Indicador</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(indicador)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gesti&#243;n 1 -->
+		<div class="form-group pqr-detalle1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gesti&#243;n 1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(detalle1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha Gesti&#243;n 1 -->
+		<div class="form-group pqr-fecha1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha Gesti&#243;n 1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(fecha1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gesti&#243;n 2 -->
+		<div class="form-group pqr-detalle2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gesti&#243;n 2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(detalle2)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha Gesti&#243;n 2 -->
+		<div class="form-group pqr-fecha2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha Gesti&#243;n 2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(fecha2)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gesti&#243;n 3 -->
+		<div class="form-group pqr-detalle3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gesti&#243;n 3</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(detalle3)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha Gesti&#243;n 3 -->
+		<div class="form-group pqr-fecha3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha Gesti&#243;n 3</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(fecha3)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gesti&#243;n 4 -->
+		<div class="form-group pqr-detalle4" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gesti&#243;n 4</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(detalle4)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fallecido -->
+		<div class="form-group pqr-fallecido" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fallecido</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="fallecido" id="fallecido" value="1" <%%CHECKED(fallecido)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Asignado a -->
+		<div class="form-group pqr-asignado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asignado a</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asignado)%%></div>
+			</div>
+		</div>
+		<!-- Field: Observaciones -->
+		<div class="form-group pqr-observaciones" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Observaciones</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(observaciones)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="pqr-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=pqr-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'pqr',
+				SelectedID: '<%%VALUE(id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'pqr-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

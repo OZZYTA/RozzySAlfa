@@ -1,0 +1,13 @@
+
+
+$j(function(){
+    $j('#patologia').click(function(){
+         if($j(this).prop('checked')){
+             /* hide some stuff */
+             $j("label[for='s2id_autogen6']").parent().show();
+         }else{
+             /* show some stuff */
+             $j("label[for='s2id_autogen6']").parent().hide();
+         }
+    });
+});

@@ -1,0 +1,23 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the covid_init() hook (in hooks/covid.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="covid-id-<%%VALUE(id)%%>" class="covid-id text-right"><%%SELECT%%><%%VALUE(id)%%><%%ENDSELECT%%></td>
+		<td id="covid-fecha-<%%VALUE(id)%%>" class="covid-fecha"><%%SELECT%%><%%VALUE(fecha)%%><%%ENDSELECT%%></td>
+		<td id="covid-tipodoc-<%%VALUE(id)%%>" class="covid-tipodoc"><%%SELECT%%><%%VALUE(tipodoc)%%><%%ENDSELECT%%></td>
+		<td id="covid-doc-<%%VALUE(id)%%>" class="covid-doc"><%%SELECT%%><%%VALUE(doc)%%><%%ENDSELECT%%></td>
+		<td id="covid-nombre-<%%VALUE(id)%%>" class="covid-nombre"><%%SELECT%%><%%VALUE(nombre)%%><%%ENDSELECT%%></td>
+		<td id="covid-genero-<%%VALUE(id)%%>" class="covid-genero"><%%SELECT%%><%%VALUE(genero)%%><%%ENDSELECT%%></td>
+		<td id="covid-nacimiento-<%%VALUE(id)%%>" class="covid-nacimiento"><%%SELECT%%><%%VALUE(nacimiento)%%><%%ENDSELECT%%></td>
+		<td id="covid-telefono-<%%VALUE(id)%%>" class="covid-telefono"><%%SELECT%%><%%VALUE(telefono)%%><%%ENDSELECT%%></td>
+		<td id="covid-eps-<%%VALUE(id)%%>" class="covid-eps"><%%SELECT%%><%%VALUE(eps)%%><%%ENDSELECT%%></td>
+		<td id="covid-fallecido-<%%VALUE(id)%%>" class="covid-fallecido"><%%SELECT%%><%%VALUE(fallecido)%%><%%ENDSELECT%%></td>
+		<td id="covid-atencion-<%%VALUE(id)%%>" class="covid-atencion"><%%SELECT%%><%%VALUE(atencion)%%><%%ENDSELECT%%></td>
+		<td id="covid-medicamentos-<%%VALUE(id)%%>" class="covid-medicamentos"><%%SELECT%%><%%VALUE(medicamentos)%%><%%ENDSELECT%%></td>
+		<td id="covid-medicinageneral-<%%VALUE(id)%%>" class="covid-medicinageneral"><%%SELECT%%><%%VALUE(medicinageneral)%%><%%ENDSELECT%%></td>
+		<td id="covid-oportunidad-<%%VALUE(id)%%>" class="covid-oportunidad"><%%SELECT%%><%%VALUE(oportunidad)%%><%%ENDSELECT%%></td>
+		<td id="covid-status-<%%VALUE(id)%%>" class="covid-status"><%%SELECT%%><%%VALUE(status)%%><%%ENDSELECT%%></td>
+		<td id="covid-asignado-<%%VALUE(id)%%>" class="covid-asignado"><%%SELECT%%><%%VALUE(asignado)%%><%%ENDSELECT%%></td>

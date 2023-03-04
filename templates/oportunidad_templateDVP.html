@@ -1,0 +1,127 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Tipo de Documento -->
+		<div class="form-group oportunidad-tipodoc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tipo de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipodoc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Numero de Documento -->
+		<div class="form-group oportunidad-doc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Numero de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(doc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombres -->
+		<div class="form-group oportunidad-nombres" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombres</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombres)%%></div>
+			</div>
+		</div>
+		<!-- Field: Apellidos -->
+		<div class="form-group oportunidad-apellidos" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Apellidos</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(apellidos)%%></div>
+			</div>
+		</div>
+		<!-- Field: Regimen -->
+		<div class="form-group oportunidad-regimen" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="regimen<%%RND1%%>"><%%COMBOTEXT(regimen)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Eps -->
+		<div class="form-group oportunidad-eps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Eps</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="eps<%%RND1%%>"><%%COMBOTEXT(eps)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Fecha de Nacimiento -->
+		<div class="form-group oportunidad-fechanac" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha de Nacimiento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechanac)%%></div>
+			</div>
+		</div>
+		<!-- Field: Edad -->
+		<div class="form-group oportunidad-edad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Edad</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(edad)%%></div>
+			</div>
+		</div>
+		<!-- Field: La ultima atenci&#243;n requerida por parte de su EPS, a que especialidad pertenc&#237;a? -->
+		<div class="form-group oportunidad-atencionreq" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">La ultima atenci&#243;n requerida por parte de su EPS, a que especialidad pertenc&#237;a?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(atencionreq)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cuando fue solicitada la ultima atenci&#243;n? -->
+		<div class="form-group oportunidad-fechaorden" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cuando fue solicitada la ultima atenci&#243;n?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechaorden)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cuando le fue realizada efectivamente la ultima atenci&#243;n? -->
+		<div class="form-group oportunidad-fechacita" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cuando le fue realizada efectivamente la ultima atenci&#243;n?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechacita)%%></div>
+			</div>
+		</div>
+		<!-- Field: Que calificaci&#243;n le da al servicio brindado por su EPS? -->
+		<div class="form-group oportunidad-calificacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Que calificaci&#243;n le da al servicio brindado por su EPS?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(calificacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Tiene alguna observaci&#243;n? -->
+		<div class="form-group oportunidad-observaciones" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tiene alguna observaci&#243;n?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(observaciones)%%></div>
+			</div>
+		</div>
+		<!-- Field: Asignado -->
+		<div class="form-group oportunidad-asignado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asignado</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asignado)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

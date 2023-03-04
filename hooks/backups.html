@@ -1,0 +1,16 @@
+<?php
+
+    $currDir = dirname(__FILE__);
+	include("$currDir/defaultLang.php");
+	include("$currDir/language.php");
+	include("$currDir/lib.php");
+	
+	include_once("$currDir/header.php");
+	 /* grant access to all logged users */
+	$pqr_from=get_sql_from('pqr');
+	$otros_from=get_sql_from('otros');
+	$correos_from=get_sql_from('correos');
+	if(!$pqr_from) exit(error_message("Acceso denegado!", false));
+ ?>
+ 
+ <html> probando esto</html>

@@ -1,0 +1,330 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Tipo de Documento: -->
+		<div class="form-group Encuesta-tipoid" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tipo de Documento:</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipoid)%%></div>
+			</div>
+		</div>
+		<!-- Field: Numero de Documento -->
+		<div class="form-group Encuesta-doc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Numero de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(doc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombres -->
+		<div class="form-group Encuesta-nombres" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombres</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombres)%%></div>
+			</div>
+		</div>
+		<!-- Field: Apellidos -->
+		<div class="form-group Encuesta-apellidos" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Apellidos</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(apellidos)%%></div>
+			</div>
+		</div>
+		<!-- Field: EPS -->
+		<div class="form-group Encuesta-eps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="eps<%%RND1%%>"><%%COMBOTEXT(eps)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: IPS Primaria -->
+		<div class="form-group Encuesta-ipsprim" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">IPS Primaria</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ipsprim<%%RND1%%>"><%%COMBOTEXT(ipsprim)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Al Utilizar el Servicio &#191;El trato Fue? -->
+		<div class="form-group Encuesta-tratoser" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Al Utilizar el Servicio &#191;El trato Fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tratoser)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;La asignaci&#243;n de citas para el servicio fue? -->
+		<div class="form-group Encuesta-cita" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;La asignaci&#243;n de citas para el servicio fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(cita)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;El trato que recibi&#243; y el tiempo dedicado por parte del personal asistencial fue? -->
+		<div class="form-group Encuesta-tratoasis" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;El trato que recibi&#243; y el tiempo dedicado por parte del personal asistencial fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tratoasis)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;La explicaci&#243;n dada por el profesional de la salud, sobre el cuidado tratamiento y mantenimiento de la salud fue? -->
+		<div class="form-group Encuesta-expprof" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;La explicaci&#243;n dada por el profesional de la salud, sobre el cuidado tratamiento y mantenimiento de la salud fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(expprof)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Las condiciones de bioseguridad (uso de tapabocas, canecas, guantes, etc) utilizadas por los profesionales de la salud fueron? -->
+		<div class="form-group Encuesta-bioser" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Las condiciones de bioseguridad (uso de tapabocas, canecas, guantes, etc) utilizadas por los profesionales de la salud fueron?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(bioser)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;C&#243;mo califica el &#225;rea donde fue antendido en cuanto a aseo y comodidad? -->
+		<div class="form-group Encuesta-area" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;C&#243;mo califica el &#225;rea donde fue antendido en cuanto a aseo y comodidad?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(area)%%></div>
+			</div>
+		</div>
+		<!-- Field: Lo han invitado a programas de Promoci&#243;n y Prevenci&#243;n? -->
+		<div class="form-group Encuesta-pyp" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Lo han invitado a programas de Promoci&#243;n y Prevenci&#243;n?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(pyp)%%></div>
+			</div>
+		</div>
+		<!-- Field: Asiste a Control Prenatal? (Solo mujeres embarazadas) -->
+		<div class="form-group Encuesta-prenatal" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asiste a Control Prenatal? (Solo mujeres embarazadas)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(prenatal)%%></div>
+			</div>
+		</div>
+		<!-- Field: Sus hijos menores de 10 a&#241;os asisten a control de crecimiento y desarrollo? -->
+		<div class="form-group Encuesta-cyd" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Sus hijos menores de 10 a&#241;os asisten a control de crecimiento y desarrollo?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(cyd)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Sus hijos menores de 5 a&#241;os han sido vacunados? -->
+		<div class="form-group Encuesta-vacunas" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Sus hijos menores de 5 a&#241;os han sido vacunados?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(vacunas)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Qu&#233; m&#233;todo de planificaci&#243;n familiar usa? -->
+		<div class="form-group Encuesta-pfm" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Qu&#233; m&#233;todo de planificaci&#243;n familiar usa?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(pfm)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Cu&#225;ndo fue su &#250;ltima citolog&#237;a? -->
+		<div class="form-group Encuesta-citologia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Cu&#225;ndo fue su &#250;ltima citolog&#237;a?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(citologia)%%></div>
+			</div>
+		</div>
+		<!-- Field: Califique su satisfacci&#243;n con el servicio recibido en el centro de salud -->
+		<div class="form-group Encuesta-sservicio" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Califique su satisfacci&#243;n con el servicio recibido en el centro de salud</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(sservicio)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Especialmente con cual de los servicios se ha sentido incomodo? -->
+		<div class="form-group Encuesta-incomodo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Especialmente con cual de los servicios se ha sentido incomodo?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(incomodo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Otro -->
+		<div class="form-group Encuesta-otro" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Otro</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(otro)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Por qu&#233;? -->
+		<div class="form-group Encuesta-why" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Por qu&#233;?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(why)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Lo han atendido oportunamente cuando se ha presentado una urgencia? -->
+		<div class="form-group Encuesta-urgencia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Lo han atendido oportunamente cuando se ha presentado una urgencia?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(urgencia)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;La asignaci&#243;n de citas ha sido oportuna? -->
+		<div class="form-group Encuesta-citaoportuna" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;La asignaci&#243;n de citas ha sido oportuna?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(citaoportuna)%%></div>
+			</div>
+		</div>
+		<!-- Field: Al utilizar el servicio &#191;el trato que recibi&#243; fue? -->
+		<div class="form-group Encuesta-aspectoeps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Al utilizar el servicio &#191;el trato que recibi&#243; fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(aspectoeps)%%></div>
+			</div>
+		</div>
+		<!-- Field: Las condiciones fisicas en las instalaciones de la EPS son? -->
+		<div class="form-group Encuesta-fisicas" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Las condiciones fisicas en las instalaciones de la EPS son?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fisicas)%%></div>
+			</div>
+		</div>
+		<!-- Field: El &#225;rea donde fue atendido en cuanto a aseo, higiene y comodidad es: -->
+		<div class="form-group Encuesta-aseo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">El &#225;rea donde fue atendido en cuanto a aseo, higiene y comodidad es:</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(aseo)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;La capacitaci&#243;n brindada por la EPS sobre sus derechos y deberes fue? -->
+		<div class="form-group Encuesta-capacitacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;La capacitaci&#243;n brindada por la EPS sobre sus derechos y deberes fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(capacitacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: La gesti&#243;n de las autorizaciones y/o tratamientos por parte de la EPS fue? -->
+		<div class="form-group Encuesta-autorizaciones" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">La gesti&#243;n de las autorizaciones y/o tratamientos por parte de la EPS fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(autorizaciones)%%></div>
+			</div>
+		</div>
+		<!-- Field: Ud considera que la EPS en general es? -->
+		<div class="form-group Encuesta-general" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ud considera que la EPS en general es?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(general)%%></div>
+			</div>
+		</div>
+		<!-- Field: El personal de la EPS lo atiende oportunamente dentro del horario de atenci&#243;n al p&#250;blico? -->
+		<div class="form-group Encuesta-horario" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">El personal de la EPS lo atiende oportunamente dentro del horario de atenci&#243;n al p&#250;blico?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(horario)%%></div>
+			</div>
+		</div>
+		<!-- Field: El personal administrativo de la EPS le entreg&#243; copia del formulario de afiliaci&#243;n y/o traslado? -->
+		<div class="form-group Encuesta-formulario" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">El personal administrativo de la EPS le entreg&#243; copia del formulario de afiliaci&#243;n y/o traslado?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(formulario)%%></div>
+			</div>
+		</div>
+		<!-- Field: Como fue el trato que recibio por parte del personal de famarcia que lo ha atendido? -->
+		<div class="form-group Encuesta-farmacia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Como fue el trato que recibio por parte del personal de famarcia que lo ha atendido?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(farmacia)%%></div>
+			</div>
+		</div>
+		<!-- Field: Las condiciones fisicas en la prestaci&#243;n del servicio de farmacia y/o drogueria fue? -->
+		<div class="form-group Encuesta-fisicasfarma" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Las condiciones fisicas en la prestaci&#243;n del servicio de farmacia y/o drogueria fue?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fisicasfarma)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;La oportunidad en la prestaci&#243;n del servicio de farmacia y/o droguer&#237;a fue?  -->
+		<div class="form-group Encuesta-oporfarmacia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;La oportunidad en la prestaci&#243;n del servicio de farmacia y/o droguer&#237;a fue? </label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(oporfarmacia)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Le entregaron la totalidad de los medicamentos?  -->
+		<div class="form-group Encuesta-totalidad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Le entregaron la totalidad de los medicamentos? </label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(totalidad)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Le gustar&#237;a que la EPS cambiara el servicio de farmacia y/o droguer&#237;a? -->
+		<div class="form-group Encuesta-cambio" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Le gustar&#237;a que la EPS cambiara el servicio de farmacia y/o droguer&#237;a?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(cambio)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;Cu&#225;ntas veces ha tenido que volver a la farmacia y/o droguer&#237;a por medicamentos pendientes? -->
+		<div class="form-group Encuesta-volver" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;Cu&#225;ntas veces ha tenido que volver a la farmacia y/o droguer&#237;a por medicamentos pendientes?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(volver)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;La persona encargada de suministrar la medicina, le orienta en el consumo y conservaci&#243;n de los medicamentos?  -->
+		<div class="form-group Encuesta-orientacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;La persona encargada de suministrar la medicina, le orienta en el consumo y conservaci&#243;n de los medicamentos? </label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(orientacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;En qu&#233; condiciones le entregan a usted el medicamento en el servicio de farmacia y/o droguer&#237;a? -->
+		<div class="form-group Encuesta-embalaje" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;En qu&#233; condiciones le entregan a usted el medicamento en el servicio de farmacia y/o droguer&#237;a?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(embalaje)%%></div>
+			</div>
+		</div>
+		<!-- Field: &#191;El personal que lo atendi&#243; revis&#243; con usted los medicamentos antes de hacer la entrega?  -->
+		<div class="form-group Encuesta-revision" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">&#191;El personal que lo atendi&#243; revis&#243; con usted los medicamentos antes de hacer la entrega? </label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(revision)%%></div>
+			</div>
+		</div>
+		<!-- Field: Observaciones -->
+		<div class="form-group Encuesta-observaciones" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Observaciones</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(observaciones)%%></div>
+			</div>
+		</div>
+		<!-- Field: Realizada por -->
+		<div class="form-group Encuesta-user" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Realizada por</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(user)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

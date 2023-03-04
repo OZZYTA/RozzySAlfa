@@ -1,0 +1,670 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/pqr-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="pqr_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="pqr_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="soportes_view.php?filterer_doc=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="soportes_link"><i class="glyphicon glyphicon-list-alt"></i> Soportes</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="soportes_view.php?filterer_doc=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_soportes_link"><i class="glyphicon glyphicon-list-alt"></i> Soportes</a>
+			<input type="hidden" id="soportes_hclink" value="soportes_view.php?filterer_doc=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="pqr_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: ID PQR -->
+				<div class="form-group pqr-consecutivo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="consecutivo">ID PQR</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="consecutivo" id="consecutivo" value="<%%VALUE(consecutivo)%%>"><div class="text-danger vspacer-md" id="consecutivo-uniqueness-note" style="display: none;"><%%TRANSLATION(unique field error)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Oficio -->
+				<div class="form-group pqr-oficio">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="oficio">Oficio</label>
+					<div class="col-lg-9">
+						<input maxlength="18" type="text" class="form-control" name="oficio" id="oficio" value="<%%VALUE(oficio)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Tipo de Doc -->
+				<div class="form-group pqr-tipoid">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tipoid">Tipo de Doc<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tipoid)%%>
+					</div>
+				</div>
+
+				<!-- Field: Pa&#237;s de procedencia del documento -->
+				<div class="form-group pqr-procedencia">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="procedencia">Pa&#237;s de procedencia del documento</label>
+					<div class="col-lg-9">
+						<%%COMBO(procedencia)%%>
+					</div>
+				</div>
+
+				<!-- Field: Numero de Identificaci&#243;n: -->
+				<div class="form-group pqr-doc">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="doc">Numero de Identificaci&#243;n:<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="doc" id="doc" value="<%%VALUE(doc)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Nombres -->
+				<div class="form-group pqr-nombres">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nombres">Nombres<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="60" type="text" class="form-control" name="nombres" id="nombres" value="<%%VALUE(nombres)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Apellidos -->
+				<div class="form-group pqr-apellidos">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="apellidos">Apellidos<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="60" type="text" class="form-control" name="apellidos" id="apellidos" value="<%%VALUE(apellidos)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Genero -->
+				<div class="form-group pqr-genero">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="genero">Genero<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(genero)%%>
+					</div>
+				</div>
+
+				<!-- Field: Nacimiento -->
+				<div class="form-group pqr-nacimiento">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nacimiento-dd">Nacimiento<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(nacimiento)%%>
+					</div>
+				</div>
+
+				<!-- Field: Edad -->
+				<div class="form-group pqr-edad">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="edad">Edad</label>
+					<div class="col-lg-9">
+						<input maxlength="3" type="text" class="form-control" name="edad" id="edad" value="<%%VALUE(edad)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Direccion -->
+				<div class="form-group pqr-direccion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="direccion">Direccion<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="100" type="text" class="form-control" name="direccion" id="direccion" value="<%%VALUE(direccion)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Barrio -->
+				<div class="form-group pqr-barrio">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="barrio" data-parent_link="view_parent_modal">Barrio<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(barrio)%%><%%PLINK(barrio)%%><%%ADDNEW(barrios)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Comuna -->
+				<div class="form-group pqr-comuna">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Comuna <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#comuna-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="comuna-description"><div class="alert alert-info bspacer-xs">Registrado automaticamente al guardar o editar el campo Barrio</div></span>
+						<div class="form-control-static" id="comuna"><%%VALUE(comuna)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Telefono -->
+				<div class="form-group pqr-telefono">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="telefono">Telefono<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="telefono" id="telefono" value="<%%VALUE(telefono)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: No tiene telefono -->
+				<div class="form-group pqr-notel">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="notel"><input type="checkbox" name="notel" id="notel" value="1" <%%CHECKED(notel)%%>> No tiene telefono</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Correo Electr&#243;nico -->
+				<div class="form-group pqr-correo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="correo">Correo Electr&#243;nico<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="100" type="text" class="form-control" name="correo" id="correo" value="<%%VALUE(correo)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: No tiene correo electr&#243;nico -->
+				<div class="form-group pqr-nocorreo">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="nocorreo"><input type="checkbox" name="nocorreo" id="nocorreo" value="1" <%%CHECKED(nocorreo)%%>> No tiene correo electr&#243;nico</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: PQR SAC? -->
+				<div class="form-group pqr-sac">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="sac"><input type="checkbox" name="sac" id="sac" value="1" <%%CHECKED(sac)%%>> PQR SAC?</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Asunto -->
+				<div class="form-group pqr-tipopqr">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tipopqr">Asunto<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tipopqr)%%>
+					</div>
+				</div>
+
+				<!-- Field: Poblacion -->
+				<div class="form-group pqr-poblacion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="poblacion">Poblacion<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(poblacion)%%>
+					</div>
+				</div>
+
+				<!-- Field: Regimen -->
+				<div class="form-group pqr-regimen">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="regimen" data-parent_link="view_parent_modal">Regimen<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(regimen)%%><%%PLINK(regimen)%%><%%ADDNEW(regimenes)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: EPS -->
+				<div class="form-group pqr-eps">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="eps" data-parent_link="view_parent_modal">EPS<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(eps)%%><%%PLINK(eps)%%><%%ADDNEW(eps)%%><span id="epsLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Otra EPS -->
+				<div class="form-group pqr-otraeps">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="otraeps">Otra EPS</label>
+					<div class="col-lg-9">
+						<%%COMBO(otraeps)%%>
+					</div>
+				</div>
+
+				<!-- Field: Gerente de la EPS -->
+				<div class="form-group pqr-gerente">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Gerente de la EPS</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="gerente"></div>
+					</div>
+				</div>
+
+				<!-- Field: PQR presentada por Acudiente? -->
+				<div class="form-group pqr-acudiente">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="acudiente"><input type="checkbox" name="acudiente" id="acudiente" value="1" <%%CHECKED(acudiente)%%>> PQR presentada por Acudiente?</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Nombre Completo del Acudiente -->
+				<div class="form-group pqr-nombreacu">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nombreacu">Nombre Completo del Acudiente</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="nombreacu" id="nombreacu" value="<%%VALUE(nombreacu)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Numero de Documento del Acudiente -->
+				<div class="form-group pqr-docacudiente">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="docacudiente">Numero de Documento del Acudiente</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="docacudiente" id="docacudiente" value="<%%VALUE(docacudiente)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Referencia de la Queja -->
+				<div class="form-group pqr-ref">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ref">Referencia de la Queja<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(ref)%%>
+					</div>
+				</div>
+
+				<!-- Field: Motivo -->
+				<div class="form-group pqr-motivo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="motivo" data-parent_link="view_parent_modal">Motivo<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(motivo)%%><%%PLINK(motivo)%%><%%ADDNEW(motivos)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Observaci&#243;n Motivo -->
+				<div class="form-group pqr-obmotivo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="obmotivo" data-parent_link="view_parent_modal">Observaci&#243;n Motivo<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(obmotivo)%%><%%PLINK(obmotivo)%%><%%ADDNEW(obmotivos)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Fecha del Incidente/Solicitud -->
+				<div class="form-group pqr-fechainc">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="fechainc-dd">Fecha del Incidente/Solicitud<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(fechainc)%%>
+					</div>
+				</div>
+
+				<!-- Field: IPS o Farmacia prestadora del servicio -->
+				<div class="form-group pqr-servicio">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="servicio" data-parent_link="view_parent_modal">IPS o Farmacia prestadora del servicio<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(servicio)%%><%%PLINK(servicio)%%><%%ADDNEW(ips)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Enfermedad o patologia -->
+				<div class="form-group pqr-enfermedad">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="enfermedad" data-parent_link="view_parent_modal">Enfermedad o patologia<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(enfermedad)%%><%%PLINK(enfermedad)%%><%%ADDNEW(cie10)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Descripcion -->
+				<div class="form-group pqr-descripcion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="descripcion">Descripcion<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="descripcion" id="descripcion" rows=" 5"><%%VALUE(descripcion)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Estado -->
+				<div class="form-group pqr-estado">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="estado">Estado<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(estado)%%>
+					</div>
+				</div>
+
+				<!-- Field: Condicion -->
+				<div class="form-group pqr-condicion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="condicion">Condicion<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(condicion)%%>
+					</div>
+				</div>
+
+				<!-- Field: Fecha de Cierre -->
+				<div class="form-group pqr-cierre">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="cierre-dd">Fecha de Cierre <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#cierre-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="cierre-description"><div class="alert alert-info bspacer-xs">(En caso de estar ya cerrada o resuelta la PQR, consigne aqu&#237; la fecha de resoluci&#243;n.</div></span>
+						<%%COMBO(cierre)%%>
+					</div>
+				</div>
+
+				<!-- Field: Conclusi&#243;n al Cierre: -->
+				<div class="form-group pqr-conclusion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="conclusion">Conclusi&#243;n al Cierre: <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#conclusion-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="conclusion-description"><div class="alert alert-info bspacer-xs">Esriba aqui la respuesta final dada por la EAPB y por la cual se consider&#243; cerrar la PQR</div></span>
+						<textarea class="form-control" name="conclusion" id="conclusion" rows=" 5"><%%VALUE(conclusion)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Indicador -->
+				<div class="form-group pqr-indicador">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="indicador">Indicador</label>
+					<div class="col-lg-9">
+						<%%COMBO(indicador)%%>
+					</div>
+				</div>
+
+				<!-- Field: Gesti&#243;n 1 -->
+				<div class="form-group pqr-detalle1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="detalle1">Gesti&#243;n 1</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="detalle1" id="detalle1" rows=" 5"><%%VALUE(detalle1)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Fecha Gesti&#243;n 1 -->
+				<div class="form-group pqr-fecha1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="fecha1">Fecha Gesti&#243;n 1</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="fecha1" id="fecha1" value="<%%VALUE(fecha1)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Gesti&#243;n 2 -->
+				<div class="form-group pqr-detalle2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="detalle2">Gesti&#243;n 2</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="detalle2" id="detalle2" rows=" 5"><%%VALUE(detalle2)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Fecha Gesti&#243;n 2 -->
+				<div class="form-group pqr-fecha2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="fecha2">Fecha Gesti&#243;n 2</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="fecha2" id="fecha2" value="<%%VALUE(fecha2)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Gesti&#243;n 3 -->
+				<div class="form-group pqr-detalle3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="detalle3">Gesti&#243;n 3</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="detalle3" id="detalle3" rows=" 5"><%%VALUE(detalle3)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Fecha Gesti&#243;n 3 -->
+				<div class="form-group pqr-fecha3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="fecha3">Fecha Gesti&#243;n 3</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="fecha3" id="fecha3" value="<%%VALUE(fecha3)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Gesti&#243;n 4 -->
+				<div class="form-group pqr-detalle4">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="detalle4">Gesti&#243;n 4</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="detalle4" id="detalle4" rows=" 5"><%%VALUE(detalle4)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Fallecido -->
+				<div class="form-group pqr-fallecido">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="fallecido"><input type="checkbox" name="fallecido" id="fallecido" value="1" <%%CHECKED(fallecido)%%>> Fallecido</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Asignado a -->
+				<div class="form-group pqr-asignado">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Asignado a</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="asignado"><%%VALUE(asignado)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Observaciones -->
+				<div class="form-group pqr-observaciones">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="observaciones">Observaciones</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="observaciones" id="observaciones" rows=" 3"><%%VALUE(observaciones)%%></textarea>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="pqr_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" name="teleps" value="<%%VALUE(teleps)%%>">
+	<input type="hidden" name="maileps" value="<%%VALUE(maileps)%%>">
+	<input type="hidden" name="cc2" value="<%%VALUE(cc2)%%>">
+	<input type="hidden" name="cc3" value="<%%VALUE(cc3)%%>">
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="pqr-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#pqr_dv_container-loading').addClass('hidden');
+			$j('#pqr_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('pqr', 'consecutivo');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'pqr',
+						SelectedID: '<%%VALUE(id)%%>',
+						Operation: 'show-children'
+					},
+					'pqr-children'
+				);
+			}
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'pqr',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+			enforce_uniqueness('pqr', 'consecutivo');
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=pqr&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=pqr&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

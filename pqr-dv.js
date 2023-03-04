@@ -1,0 +1,74 @@
+function show_error(field, msg){
+	modal_window({
+		message: '<div class="alert alert-danger">' + msg + '</div>',
+		title: 'Error en ' + field,
+		close: function(){
+			$j('#' + field).focus();
+			$j('#' + field).parents('.form-group').addClass('has-error');
+		}
+	});
+	
+	return false;
+}
+
+function get_date(date_field){
+	var y = $j('#' + date_field).val();
+	var m = $j('#' + date_field + '-mm').val();
+	var d = $j('#' + date_field + '-dd').val();
+	
+	var date_object = new Date(y, m - 1, d);
+	
+	if(!y) return false;
+	
+	return date_object;
+}
+
+
+$j(function(){
+	$j('#update, #insert').click(function(){
+	
+	if($j('#condicion').val()=='ABIERTA' && $j('#estado').val()=='RESUELTA' || $j('#condicion').val()=='ABIERTA' && $j('#estado').val()=='NO RESUELTA'){
+    return show_error('estado', 'SI LA CONDICION DE LA PQR SIGUE SIENDO ABIERTA, SU ESTADO AUN NO PUEDE CONSIDERARSE RESUELTA O NO RESUELTA');
+		}
+	else if ($j('#condicion').val()=='CERRADA' && ($j('#estado').val()=='RECEPCIONADA' || $j('#estado').val()=='EN TRAMITE' || $j('#estado').val()=='REMITIDA A EPS' || $j('#estado').val()=='REMITIDA A SUPERSALUD'))
+	{
+	return show_error('estado', 'RECUERDE QUE SI LA CONDICION DE LA PQR ES CERRADA, SU ESTADO SOLO PUEDE SER RESUELTA O NO RESUELTA');
+	}
+	else if ($j('#condicion').val()=='CERRADA' && $j('#indicador').val()==='')
+	{
+	return show_error('indicador', 'RECUERDE QUE SI LA CONDICION DE LA PQR ES CERRADA, DEBE EXISTIR UN INDICADOR DE SATISFACCION');
+	}
+	else if ($j('#condicion').val()=='ABIERTA' && $j('#indicador').val()!=='')
+	{
+	return show_error('indicador', 'RECUERDE QUE SI LA CONDICION DE LA PQR ES ABIERTA, AUN NO DEBE EXISTIR UN INDICADOR DE SATISFACCION');
+	}
+
+	});
+
+	$j('#update, #insert').click(function(){
+		/* Make sure shipped date is today or older, but not older than order date */
+		var closedate = get_date('cierre');
+		var hoy = new Date();
+		var pqrdate = get_date('fechainc');
+		
+		if(pqrdate && (pqrdate > hoy)){
+			return show_error('fechainc', 'La fecha del incidente o solicitud no puede ser mayor a hoy');
+		}
+		else if(closedate && (closedate > hoy)){
+			return show_error('cierre', 'La fecha de cierre de la PQR no puede ser mayor a hoy');
+		}
+		else if(closedate && (closedate < pqrdate)){
+			return show_error('cierre', 'La fecha de cierre de la PQR no puede ser menor a la fecha del incidente o solicitud');
+		}
+		else if($j('#condicion').val()=='CERRADA' && (closedate===false)){
+			return show_error('cierre', 'RECUERDE QUE SI LA CONDICION DE LA PQR ES CERRADA, DEBE TENER UNA FECHA DE CIERRE');
+		}
+		else if($j('#condicion').val()=='ABIERTA' && (closedate!==false)){
+			return show_error('cierre', 'RECUERDE QUE SI LA CONDICION DE LA PQR ES ABIERTA, AUN NO DEBE TENER UNA FECHA DE CIERRE');
+		}
+	});
+
+	
+	
+})
+

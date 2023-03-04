@@ -1,0 +1,180 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong>	</strong></h3>
+  <table width="100%" border="0">
+    <tbody>
+      <tr>
+        <td width="50%" rowspan="2"><h3 class="panel-title">
+          <strong>
+          <%%DETAIL_VIEW_TITLE%%>
+#
+<%%VALUE(id)%%>
+        </strong></td>
+        <td width="50%"><strong><img src="logo.png" alt="" width="220" height="111" align="right"/></strong></td>
+      </tr>
+      <tr>
+        <td align="right"><div class="btn-group" >
+          <button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i>
+            <%%TRANSLATION(Print)%%>
+            </button>
+          <button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i>
+            <%%TRANSLATION(Cancel Printing)%%>
+            </button>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td width="489"><label class="col-xs-3 control-label">Tipo de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipodoc)%%></div>
+			</div></td>
+        <td width="480"><label class="col-xs-3 control-label">Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(doc)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Nombre Completo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombre)%%></div>
+		</div></td>
+        <td><label class="col-xs-3 control-label">Edad</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(edad)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(telefono)%%></div>
+		</div></td>
+        <td><label class="col-xs-3 control-label">EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(eps)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(regimen)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Ha estado o se encuentra en aislamiento preventivo u obligatorio?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(aislamiento)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>Se encuentra ud en embarazo?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(embarazo)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Tiene alguna patolog&#237;a?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="patologia" id="patologia" value="1" <%%CHECKED(patologia)%%> readonly></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label class="col-xs-3 control-label">Cual?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(cual)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>Ha sido diagn&#243;sticado como positivo para COVID-19?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(dx)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Es &#243; ha sido paciente sintom&#225;tico o asintom&#225;tico?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(sintomas)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>En que fecha inici&#243; su aislamiento?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(inicioasilamiento)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Durante el aislamiento ha requerido atención médica de algun tipo?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(requerido)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>La EPS ha atendido sus necesidades durante el aislamiento? ¿De qué forma?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(atencion)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Le han ordenado tratamiento medico?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tratamiento)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>Le han hecho entrega de medicamentos en su domicilio?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(medicamentos)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Se ha realizado Prueba de laboratorio para COVID-19?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(muestra)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>De que forma fue realizada su prueba?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(donde)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Su EPS cubri&#243; los costos de la realizaci&#243;n de la prueba?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(cubrimiento)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label style=padding-left:20px>La he EPS ha hecho seguimiento sobre su condici&#243;n de salud?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(vigilancia)%%></div>
+			</div></td>
+        <td><label style=padding-left:20px>Su percepci&#243;n con respecto a la atenci&#243;n brindada por su EPS durante su aislamiento es:</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(percepcion)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label class="col-xs-3 control-label">Paciente Fallecido</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="fallecido" id="fallecido" value="1" <%%CHECKED(fallecido)%%> readonly></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label class="col-xs-3 control-label">Observaciones</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(observacion)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label class="col-xs-3 control-label">Responsable</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asignado)%%></div>
+			</div></td>
+      </tr>
+    </tbody>
+  </table>
+  
+    <div class="hidden-print pull-right">
+      
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="panel-body">
+  <fieldset class="form-horizontal">
+  <div class="form-group covid-status" style="border-bottom: dotted 1px #DDD;">
+    <div class="col-xs-9">
+    </div>
+		</div>
+	</fieldset>
+</div>

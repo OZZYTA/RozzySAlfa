@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the eps_init() hook (in hooks/eps.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="eps-razonsocial-<%%VALUE(razonsocial)%%>" class="eps-razonsocial"><%%SELECT%%><%%VALUE(razonsocial)%%><%%ENDSELECT%%></td>
+		<td id="eps-regimen-<%%VALUE(razonsocial)%%>" class="eps-regimen"><%%SELECT%%><%%VALUE(regimen)%%><%%ENDSELECT%%></td>
+		<td id="eps-gerente-<%%VALUE(razonsocial)%%>" class="eps-gerente"><%%SELECT%%><%%VALUE(gerente)%%><%%ENDSELECT%%></td>
+		<td id="eps-telefono-<%%VALUE(razonsocial)%%>" class="eps-telefono"><%%SELECT%%><%%VALUE(telefono)%%><%%ENDSELECT%%></td>
+		<td id="eps-correo-<%%VALUE(razonsocial)%%>" class="eps-correo"><%%SELECT%%><%%VALUE(correo)%%><%%ENDSELECT%%></td>
+		<td id="eps-correo2-<%%VALUE(razonsocial)%%>" class="eps-correo2"><%%SELECT%%><%%VALUE(correo2)%%><%%ENDSELECT%%></td>
+		<td id="eps-correo3-<%%VALUE(razonsocial)%%>" class="eps-correo3"><%%SELECT%%><%%VALUE(correo3)%%><%%ENDSELECT%%></td>

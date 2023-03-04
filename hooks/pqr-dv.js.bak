@@ -1,0 +1,20 @@
+function show_error(field, msg){
+	modal_window({
+		message: '<div class="alert alert-danger">' + msg + '</div>',
+		title: 'Error in ' + field,
+		close: function(){
+			$j('#' + field).focus();
+			$j('#' + field).parents('.form-group').addClass('has-error');
+		}
+	});
+	
+	return false;
+}
+
+$j(function(){
+	$j('#update, #insert').click(function(){
+	if($j('#condicion').val()=='ABIERTA' && $j('#estado').val()=='RESUELTA'){
+    return show_error('estado', 'SI LA CONDICION DE LA PQR SIGUE SIENDO ABIERTA, SU ESTADO AUN NO PUEDE CONSIDERARSE RESUELTA O NO RESUELTA');
+		}
+	});
+})
