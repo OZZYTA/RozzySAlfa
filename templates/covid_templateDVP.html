@@ -1,0 +1,190 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Tipo de Documento -->
+		<div class="form-group covid-tipodoc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tipo de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipodoc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Documento -->
+		<div class="form-group covid-doc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(doc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombre Completo -->
+		<div class="form-group covid-nombre" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombre Completo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombre)%%></div>
+			</div>
+		</div>
+		<!-- Field: Genero -->
+		<div class="form-group covid-genero" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Genero</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(genero)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha de Nacimiento -->
+		<div class="form-group covid-nacimiento" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha de Nacimiento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(nacimiento)%%></div>
+			</div>
+		</div>
+		<!-- Field: Edad -->
+		<div class="form-group covid-edad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Edad</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(edad)%%></div>
+			</div>
+		</div>
+		<!-- Field: Telefono -->
+		<div class="form-group covid-telefono" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(telefono)%%></div>
+			</div>
+		</div>
+		<!-- Field: Regimen -->
+		<div class="form-group covid-regimen" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="regimen<%%RND1%%>"><%%COMBOTEXT(regimen)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: EPS -->
+		<div class="form-group covid-eps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="eps<%%RND1%%>"><%%COMBOTEXT(eps)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Se encuentra ud en embarazo? -->
+		<div class="form-group covid-embarazo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Se encuentra ud en embarazo?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(embarazo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Tiene alguna patolog&#237;a? -->
+		<div class="form-group covid-patologia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tiene alguna patolog&#237;a?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="patologia" id="patologia" value="1" <%%CHECKED(patologia)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Fallecido -->
+		<div class="form-group covid-fallecido" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fallecido</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="fallecido" id="fallecido" value="1" <%%CHECKED(fallecido)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Cual? -->
+		<div class="form-group covid-cual" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cual?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="cual<%%RND1%%>"><%%COMBOTEXT(cual)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: LA EPS HA ATENDIDO SUS NECESIDADES DURANTE EL ESTADO DE EMERGENCIA? DE QUE FORMA? -->
+		<div class="form-group covid-atencion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">LA EPS HA ATENDIDO SUS NECESIDADES DURANTE EL ESTADO DE EMERGENCIA? DE QUE FORMA?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(atencion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Le han ordenado tratamiento medico durante el periodo de Emergencia? -->
+		<div class="form-group covid-tratamiento" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Le han ordenado tratamiento medico durante el periodo de Emergencia?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tratamiento)%%></div>
+			</div>
+		</div>
+		<!-- Field: LE HAN HECHO ENTREGA DE MEDICAMENTOS EN SU DOMICILIO DURANTE LA EMERGENCIA? -->
+		<div class="form-group covid-medicamentos" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">LE HAN HECHO ENTREGA DE MEDICAMENTOS EN SU DOMICILIO DURANTE LA EMERGENCIA?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(medicamentos)%%></div>
+			</div>
+		</div>
+		<!-- Field: La he EPS ha hecho seguimiento sobre su condici&#243;n de salud? -->
+		<div class="form-group covid-vigilancia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">La he EPS ha hecho seguimiento sobre su condici&#243;n de salud?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(vigilancia)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cual es su nivel de satisfacci&#243;n con su EPS? -->
+		<div class="form-group covid-percepcion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cual es su nivel de satisfacci&#243;n con su EPS?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(percepcion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Recientemente ha solicitado citas de Medicina General? -->
+		<div class="form-group covid-medicinageneral" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Recientemente ha solicitado citas de Medicina General?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="medicinageneral" id="medicinageneral" value="1" <%%CHECKED(medicinageneral)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: A cuantos d&#237;as le fue dada la ultima cita solicitada? -->
+		<div class="form-group covid-oportunidad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">A cuantos d&#237;as le fue dada la ultima cita solicitada?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(oportunidad)%%></div>
+			</div>
+		</div>
+		<!-- Field: Observacion -->
+		<div class="form-group covid-observacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Observacion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(observacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Estado -->
+		<div class="form-group covid-status" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Estado</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(status)%%></div>
+			</div>
+		</div>
+		<!-- Field: Asignado a -->
+		<div class="form-group covid-asignado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asignado a</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asignado)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

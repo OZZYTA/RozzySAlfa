@@ -1,0 +1,266 @@
+<?php
+	// For help on using hooks, please refer to https://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks
+	function pqr_init(&$options, $memberInfo, &$args) {
+	
+		return TRUE;
+	}
+
+	function pqr_header($contentType, $memberInfo, &$args) {
+		$header='';
+
+		switch($contentType) {
+			case 'tableview':
+				$header='';
+				break;
+
+			case 'detailview':
+				$header='';
+				break;
+
+			case 'tableview+detailview':
+				$header='';
+				break;
+
+			case 'print-tableview':
+				$header='';
+				break;
+
+			case 'print-detailview':
+				$header='';
+				break;
+
+			case 'filters':
+				$header='';
+				break;
+		}
+
+		return $header;
+	}
+
+	function pqr_footer($contentType, $memberInfo, &$args) {
+		$footer='';
+
+		switch($contentType) {
+			case 'tableview':
+				$footer='';
+				break;
+
+			case 'detailview':
+				$footer='';
+				break;
+
+			case 'tableview+detailview':
+				$footer='';
+				break;
+
+			case 'print-tableview':
+				$footer='';
+				break;
+
+			case 'print-detailview':
+				$footer='';
+				break;
+
+			case 'filters':
+				$footer='';
+				break;
+		}
+
+		return $footer;
+	}
+
+	function pqr_before_insert(&$data, $memberInfo, &$args) {
+		
+		return TRUE;
+	}
+
+
+
+	function pqr_after_insert($data, $memberInfo, &$args) {
+		$correo = sqlValue("select correo from pqr where id='" . makeSafe($data['id']) . "'");
+		$id= sqlValue("select id from pqr where id='" . makeSafe($data['id']) . "'");
+		$fecha= sqlValue("select fecha from pqr where id='" . makeSafe($data['id']) . "'");
+		$tipoid= sqlValue("select tipoid from pqr where id='" . makeSafe($data['id']) . "'");
+		$doc=sqlValue("select doc from pqr where id='" . makeSafe($data['id']) . "'");
+		$nombres=sqlValue("select nombres from pqr where id='" . makeSafe($data['id']) . "'");
+		$apellidos=sqlValue("select apellidos from pqr where id='" . makeSafe($data['id']) . "'");
+		$eps=sqlValue("select eps from pqr where id='" . makeSafe($data['id']) . "'");
+		$motivo=sqlValue("select motivo from pqr where id='" . makeSafe($data['id']) . "'");
+		$descripcion=sqlValue("select descripcion from pqr where id='" . makeSafe($data['id']) . "'");
+		$estado=sqlValue("select estado from pqr where id='" . makeSafe($data['id']) . "'");
+		
+		$success = sendmail(array(
+		'to' => $correo,
+		'name' => 'RozzyS by Medicontrol SAS',
+		'subject' => 'Su PQR ha sido Registrada',
+		'message' => "Señor usuario, ha sido registrada la siguiente PQR en nuestra plataforma RozzyS para su respectiva vigilancia y gestión: <br>
+		---------------------------------------------------------------------------------------------------------------------------------<br>
+			
+			<b>Identificador de PQR:</b> ".$id."<br>
+			<b>Fecha:</b> ".$fecha."<br>
+			<b>Documento:</b> ".$tipoid.". ".$doc."<br>
+			<b>Nombre Completo:</b> ".$nombres." ".$apellidos."<br>
+			<b>EPS:</b> ".$eps."<br>
+			<b>Motivo de la PQR:</b> ".$motivo."<br>
+			<b>Descripción de la PQR:</b> ".$descripcion."<br>
+			<b>Estado:</b> ".$estado."<br><br>
+			
+			Gracias por Confiar en Nosotros, estamos para servirle"
+		));
+
+		sendmail(array(
+		'to' => 'records@medicontrolsas.com',
+		'name' => 'RozzyS by Medicontrol SAS',
+		'subject' => 'Ha sido registrada una PQR #'.$id.', '.$tipoid.'.'.$doc,
+		'message' => "Ha sido registrada la siguiente PQR en nuestra plataforma RozzyS para su respectiva vigilancia y gestion: <br>
+		---------------------------------------------------------------------------------------------------------------------------------<br>
+			
+			<b>Identificador de PQR:</b> ".$id."<br>
+			<b>Fecha:</b> ".$fecha."<br>
+			<b>Documento:</b> ".$tipoid.". ".$doc."<br>
+			<b>Nombre Completo:</b> ".$nombres." ".$apellidos."<br>
+			<b>EPS:</b> ".$eps."<br>
+			<b>Motivo de la PQR:</b> ".$motivo."<br>
+			<b>Descripción de la PQR:</b> ".$descripcion."<br>
+			<b>Estado:</b> ".$estado."<br><br>
+			
+			Gracias por Confiar en Nosotros, estamos para servirle."
+		));
+
+		if(!$success){
+		// something went wrong with mail sending .. you should handle it here ..
+		}
+
+		return TRUE;
+	}
+
+	function pqr_before_update(&$data, $memberInfo, &$args) {
+
+	
+		return TRUE;
+	}
+
+	function pqr_after_update($data, $memberInfo, &$args) {
+
+	$correo = sqlValue("select correo from pqr where id='" . makeSafe($data['id']) . "'");
+		$id= sqlValue("select id from pqr where id='" . makeSafe($data['id']) . "'");
+		$fecha= sqlValue("select fecha from pqr where id='" . makeSafe($data['id']) . "'");
+		$tipoid= sqlValue("select tipoid from pqr where id='" . makeSafe($data['id']) . "'");
+		$doc=sqlValue("select doc from pqr where id='" . makeSafe($data['id']) . "'");
+		$nombres=sqlValue("select nombres from pqr where id='" . makeSafe($data['id']) . "'");
+		$apellidos=sqlValue("select apellidos from pqr where id='" . makeSafe($data['id']) . "'");
+		$eps=sqlValue("select eps from pqr where id='" . makeSafe($data['id']) . "'");
+		$motivo=sqlValue("select motivo from pqr where id='" . makeSafe($data['id']) . "'");
+		$descripcion=sqlValue("select descripcion from pqr where id='" . makeSafe($data['id']) . "'");
+		$estado=sqlValue("select estado from pqr where id='" . makeSafe($data['id']) . "'");
+		
+		$success = sendmail(array(
+		'to' => $correo,
+		'name' => 'RozzyS by Medicontrol SAS',
+		'subject' => 'Ha Cambiado el Estado/Detalle de su PQR',
+		'message' => "Señor usuario, ha cambiado el estado o detalle de su PQR radicada en nuestra plataforma RozzyS para su respectiva vigilancia y gestión: <br>
+		---------------------------------------------------------------------------------------------------------------------------------<br>
+			
+			<b>Identificador de PQR:</b> ".$id."<br>
+			<b>Fecha:</b> ".$fecha."<br>
+			<b>Documento:</b> ".$tipoid.". ".$doc."<br>
+			<b>Nombre Completo:</b> ".$nombres." ".$apellidos."<br>
+			<b>EPS:</b> ".$eps."<br>
+			<b>Motivo de la PQR:</b> ".$motivo."<br>
+			<b>Estado:</b> ".$estado."<br><br>
+			
+			Gracias por Confiar en Nosotros, estamos para servirle"
+		));
+
+		sendmail(array(
+		'to' => 'records@medicontrolsas.com',
+		'name' => 'RozzyS by Medicontrol SAS',
+		'subject' => 'Ha Cambiado el Estado/Detalle de la PQR #'.$id.', '.$tipoid.'.'.$doc,
+		'message' => "Ha sido registrado un cambio en una PQR registrada en nuestra plataforma RozzyS para su respectiva vigilancia y gestión: <br>
+		---------------------------------------------------------------------------------------------------------------------------------<br>
+			
+			<b>Identificador de PQR:</b> ".$id."<br>
+			<b>Fecha:</b> ".$fecha."<br>
+			<b>Documento:</b> ".$tipoid.". ".$doc."<br>
+			<b>Nombre Completo:</b> ".$nombres." ".$apellidos."<br>
+			<b>EPS:</b> ".$eps."<br>
+			<b>Motivo de la PQR:</b> ".$motivo."<br>
+			<b>Estado:</b> ".$estado."<br><br>
+			
+			Gracias por Confiar en Nosotros, estamos para servirle."
+		));
+
+		if(!$success){
+		// something went wrong with mail sending .. you should handle it here ..
+		}
+
+
+
+		return TRUE;
+	}
+
+	function pqr_before_delete($selectedID, &$skipChecks, $memberInfo, &$args) {
+
+		$correo = sqlValue("select correo from pqr where id='" . makeSafe($selectedID) . "'");
+		$id= sqlValue("select id from pqr where id='" . makeSafe($selectedID) . "'");
+		$fecha= sqlValue("select fecha from pqr where id='" . makeSafe($selectedID) . "'");
+		$tipoid= sqlValue("select tipoid from pqr where id='" . makeSafe($selectedID) . "'");
+		$doc=sqlValue("select doc from pqr where id='" . makeSafe($selectedID) . "'");
+		$nombres=sqlValue("select nombres from pqr where id='" . makeSafe($selectedID) . "'");
+		$apellidos=sqlValue("select apellidos from pqr where id='" . makeSafe($selectedID) . "'");
+		$eps=sqlValue("select eps from pqr where id='" . makeSafe($selectedID) . "'");
+		$motivo=sqlValue("select motivo from pqr where id='" . makeSafe($selectedID) . "'");
+		$descripcion=sqlValue("select descripcion from pqr where id='" . makeSafe($selectedID) . "'");
+		$estado=sqlValue("select estado from pqr where id='" . makeSafe($selectedID) . "'");
+		
+		$success = 	sendmail(array(
+		'to' => 'records@medicontrolsas.com',
+		'name' => 'RozzyS by Medicontrol SAS',
+		'subject' => 'Ha sido eliminada la PQR #'.$id.', '.$tipoid.'.'.$doc,
+		'message' => "Ha sido eliminada una PQR registrada en nuestra plataforma RozzyS para su respectiva vigilancia y gestión: <br>
+		---------------------------------------------------------------------------------------------------------------------------------<br>
+			
+			<b>Identificador de PQR:</b> ".$id."<br>
+			<b>Fecha:</b> ".$fecha."<br>
+			<b>Documento:</b> ".$tipoid.". ".$doc."<br>
+			<b>Nombre Completo:</b> ".$nombres." ".$apellidos."<br>
+			<b>EPS:</b> ".$eps."<br>
+			<b>Descripción de la PQR:</b> ".$descripcion."<br>
+			<br><br><br>"
+		));
+
+		if(!$success){
+		// something went wrong with mail sending .. you should handle it here ..
+		}
+
+		return TRUE;
+	}
+
+	function pqr_after_delete($selectedID, $memberInfo, &$args) {
+
+		return TRUE;
+	}
+
+	function pqr_dv($selectedID, $memberInfo, &$html, &$args) {
+
+	}
+
+	function pqr_csv($query, $memberInfo, &$args) {
+
+		return $query;
+	}
+
+
+	function pqr_batch_actions(&$args){
+
+		return array(
+			array(
+			'title' => 'No Contactado',
+			'function' => 'change_to_notcontacted',
+			'icon' => 'remove'
+			),
+
+		);
+	}
+
+	

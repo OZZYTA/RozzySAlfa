@@ -1,0 +1,232 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Fecha -->
+		<div class="form-group otros-fecha" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fecha)%%></div>
+			</div>
+		</div>
+		<!-- Field: Asunto -->
+		<div class="form-group otros-asunto" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asunto</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(asunto)%%></div>
+			</div>
+		</div>
+		<!-- Field: Sexo -->
+		<div class="form-group otros-sexo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Sexo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(sexo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Tipo de Documento -->
+		<div class="form-group otros-tipodoc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tipo de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipodoc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Pa&#237;s de Procedencia -->
+		<div class="form-group otros-procedencia" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Pa&#237;s de Procedencia</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(procedencia)%%></div>
+			</div>
+		</div>
+		<!-- Field: No. de Documento -->
+		<div class="form-group otros-documento" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">No. de Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(documento)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombre(s) -->
+		<div class="form-group otros-nombres" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombre(s)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombres)%%></div>
+			</div>
+		</div>
+		<!-- Field: Apellido(s) -->
+		<div class="form-group otros-apellidos" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Apellido(s)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(apellidos)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha de Nacimiento -->
+		<div class="form-group otros-nacimiento" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha de Nacimiento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(nacimiento)%%></div>
+			</div>
+		</div>
+		<!-- Field: Edad -->
+		<div class="form-group otros-edad" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Edad</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(edad)%%></div>
+			</div>
+		</div>
+		<!-- Field: Direccion -->
+		<div class="form-group otros-direccion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Direccion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(direccion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Barrio -->
+		<div class="form-group otros-barrio" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Barrio</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="barrio<%%RND1%%>"><%%COMBOTEXT(barrio)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Comuna -->
+		<div class="form-group otros-comuna" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Comuna</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(comuna)%%></div>
+			</div>
+		</div>
+		<!-- Field: Telefono -->
+		<div class="form-group otros-telefono" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(telefono)%%></div>
+			</div>
+		</div>
+		<!-- Field: Regimen -->
+		<div class="form-group otros-regimen" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="regimen<%%RND1%%>"><%%COMBOTEXT(regimen)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: EAPB -->
+		<div class="form-group otros-eapb" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">EAPB</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="eapb<%%RND1%%>"><%%COMBOTEXT(eapb)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Otra EPS -->
+		<div class="form-group otros-otraeps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Otra EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(otraeps)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gerente -->
+		<div class="form-group otros-gerente" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gerente</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="gerente<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Tipo de Poblaci&#243;n -->
+		<div class="form-group otros-poblacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tipo de Poblaci&#243;n</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(poblacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Tr&#225;mite solicitado por un acudiente? -->
+		<div class="form-group otros-acudiente" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Tr&#225;mite solicitado por un acudiente?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="acudiente" id="acudiente" value="1" <%%CHECKED(acudiente)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: No. de Documento del Acudiente -->
+		<div class="form-group otros-docacu" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">No. de Documento del Acudiente</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(docacu)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombre del Acudiente -->
+		<div class="form-group otros-nombreacu" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombre del Acudiente</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombreacu)%%></div>
+			</div>
+		</div>
+		<!-- Field: Descripcion -->
+		<div class="form-group otros-descripcion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Descripcion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(descripcion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha de entrega del Documento -->
+		<div class="form-group otros-fechaentrega" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha de entrega del Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechaentrega)%%></div>
+			</div>
+		</div>
+		<!-- Field: Soporte1 -->
+		<div class="form-group otros-soporte1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Soporte1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="soporte1-link" href="link.php?t=otros&f=soporte1&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-picture" title="<%%VALUE(soporte1)%%>"></i></a><script>jQuery(function() { var e_soporte1 = '<%%VALUE(soporte1)%%>'; if(e_soporte1 == '' || e_soporte1 == '&nbsp;' || e_soporte1 == 'blank.gif') jQuery('#soporte1-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Soporte2 -->
+		<div class="form-group otros-soporte2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Soporte2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="soporte2-link" href="link.php?t=otros&f=soporte2&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-picture" title="<%%VALUE(soporte2)%%>"></i></a><script>jQuery(function() { var e_soporte2 = '<%%VALUE(soporte2)%%>'; if(e_soporte2 == '' || e_soporte2 == '&nbsp;' || e_soporte2 == 'blank.gif') jQuery('#soporte2-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Soporte3 -->
+		<div class="form-group otros-soporte3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Soporte3</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="soporte3-link" href="link.php?t=otros&f=soporte3&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-picture" title="<%%VALUE(soporte3)%%>"></i></a><script>jQuery(function() { var e_soporte3 = '<%%VALUE(soporte3)%%>'; if(e_soporte3 == '' || e_soporte3 == '&nbsp;' || e_soporte3 == 'blank.gif') jQuery('#soporte3-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Nombre del Funcionario SSM -->
+		<div class="form-group otros-asignado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombre del Funcionario SSM</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asignado)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cargo del Funcionario SSM -->
+		<div class="form-group otros-cargo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cargo del Funcionario SSM</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(cargo)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

@@ -1,0 +1,35 @@
+<script>
+$j(function(){
+	$j('.page-header > h1').find('a').contents().unwrap()	;
+})
+</script>
+
+<script>
+		$j('.pqr-dias').each(function(){
+			var dias =$j(this).text()
+				if(dias>24){
+				$j(this).parents('tr').addClass('danger');	
+			} ;
+		
+		}) 
+		
+</script>
+
+<script>
+		$j('.pqr-condicion').ready(function(){
+			var contador=$j("td:contains('ABIERTA')").length;;
+				if(contador>1){
+				modal_window({
+					message: 'Cuenta con PQR abiertas resaltadas en rojo, esto quiere decir que han superado su tiempo reglamentario para resolucion, por favor dar prioridad en gestion',
+					title: 'PQR Abiertas resaltadas',
+					footer: [{
+						label: 'Cerrar',
+						bs_class: 'default'
+					}]
+				});
+			} ;
+		
+		}) 
+		
+</script>
+

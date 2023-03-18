@@ -1,0 +1,71 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID de la PQR -->
+		<div class="form-group mails-idpqr" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID de la PQR</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(idpqr)%%></div>
+			</div>
+		</div>
+		<!-- Field: Fecha y Hora de Env&#237;o -->
+		<div class="form-group mails-fecha" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fecha y Hora de Env&#237;o</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(fecha)%%></div>
+			</div>
+		</div>
+		<!-- Field: EPS -->
+		<div class="form-group mails-eps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(eps)%%></div>
+			</div>
+		</div>
+		<!-- Field: Direcci&#243;n de Env&#237;o -->
+		<div class="form-group mails-correo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Direcci&#243;n de Env&#237;o</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(correo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Asunto del correo -->
+		<div class="form-group mails-asunto" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Asunto del correo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asunto)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cuerpo -->
+		<div class="form-group mails-cuerpo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cuerpo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(cuerpo)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

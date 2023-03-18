@@ -1,0 +1,40 @@
+<?php
+	$dbServer = 'localhost';
+	$dbUsername = 'root';
+	$dbPassword = '';
+	$dbDatabase = 'medico_rozzys';
+	$appURI = 'RozzySAlfa';
+	$host = 'localhost';
+
+	$adminConfig = [
+		'adminUsername' => "admin",
+		'adminPassword' => "\$2y\$10\$GeAaazoIapylkHNhl9SPPO0DEoM3HRBrE18CjezPF0zzggMiVTZX6",
+		'notifyAdminNewMembers' => "0",
+		'defaultSignUp' => "1",
+		'anonymousGroup' => "anonymous",
+		'anonymousMember' => "guest",
+		'groupsPerPage' => "10",
+		'membersPerPage' => "10",
+		'recordsPerPage' => "10",
+		'custom1' => "Full Name",
+		'custom2' => "Address",
+		'custom3' => "City",
+		'custom4' => "State",
+		'MySQLDateFormat' => "%m/%d/%Y",
+		'PHPDateFormat' => "n/j/Y",
+		'PHPDateTimeFormat' => "m/d/Y, h:i a",
+		'senderName' => "Membership management",
+		'senderEmail' => "pqr@medicontrolsas.com",
+		'approvalSubject' => "Your membership is now approved",
+		'approvalMessage' => "Dear member,\r\n\r\nYour membership is now approved by the admin. You can log in to your account here:\r\nhttp://localhost/RozzySAlfa\r\n\r\nRegards,\r\nAdmin",
+		'hide_twitter_feed' => "",
+		'maintenance_mode_message' => "<b>Our website is currently down for maintenance</b><br>\r\nWe expect to be back in a couple hours. Thanks for your patience.",
+		'mail_function' => "smtp",
+		'smtp_server' => "mail.medicontrolsas.com",
+		'smtp_encryption' => "ssl",
+		'smtp_port' => "465",
+		'smtp_user' => "pqr@medicontrolsas.com",
+		'smtp_pass' => "Medicontrol123*",
+		'googleAPIKey' => "",
+		'baseUploadPath' => "images",
+	];

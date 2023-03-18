@@ -1,0 +1,399 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/covid-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="covid_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="covid_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="covid_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Tipo de Documento -->
+				<div class="form-group covid-tipodoc">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tipodoc">Tipo de Documento<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tipodoc)%%>
+					</div>
+				</div>
+
+				<!-- Field: Documento -->
+				<div class="form-group covid-doc">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="doc">Documento<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="doc" id="doc" value="<%%VALUE(doc)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Nombre Completo -->
+				<div class="form-group covid-nombre">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nombre">Nombre Completo<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="nombre" id="nombre" value="<%%VALUE(nombre)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Genero -->
+				<div class="form-group covid-genero">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="genero">Genero<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(genero)%%>
+					</div>
+				</div>
+
+				<!-- Field: Fecha de Nacimiento -->
+				<div class="form-group covid-nacimiento">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nacimiento-dd">Fecha de Nacimiento<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(nacimiento)%%>
+					</div>
+				</div>
+
+				<!-- Field: Edad -->
+				<div class="form-group covid-edad">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="edad">Edad<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="3" type="text" class="form-control" name="edad" id="edad" value="<%%VALUE(edad)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Telefono -->
+				<div class="form-group covid-telefono">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="telefono">Telefono<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="telefono" id="telefono" value="<%%VALUE(telefono)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Regimen -->
+				<div class="form-group covid-regimen">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="regimen" data-parent_link="view_parent_modal">Regimen</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(regimen)%%><%%PLINK(regimen)%%><%%ADDNEW(regimenes)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: EPS -->
+				<div class="form-group covid-eps">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="eps" data-parent_link="view_parent_modal">EPS<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(eps)%%><%%PLINK(eps)%%><%%ADDNEW(eps)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Se encuentra ud en embarazo? -->
+				<div class="form-group covid-embarazo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="embarazo">Se encuentra ud en embarazo?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(embarazo)%%>
+					</div>
+				</div>
+
+				<!-- Field: Tiene alguna patolog&#237;a? -->
+				<div class="form-group covid-patologia">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="patologia-description"><div class="alert alert-info bspacer-xs">Registre aqui si el usuario encuestado tiene o no tiene alguna patologia de base' (Condiciones cronicas, agudas o gen&#233;ticas)</div></span>
+						<div class="checkbox">
+							<label for="patologia"><input type="checkbox" name="patologia" id="patologia" value="1" <%%CHECKED(patologia)%%>> Tiene alguna patolog&#237;a?</label> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#patologia-description"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Fallecido -->
+				<div class="form-group covid-fallecido">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="fallecido"><input type="checkbox" name="fallecido" id="fallecido" value="1" <%%CHECKED(fallecido)%%>> Fallecido</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Cual? -->
+				<div class="form-group covid-cual">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="cual" data-parent_link="view_parent_modal">Cual?</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(cual)%%><%%PLINK(cual)%%><%%ADDNEW(cie10)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: LA EPS HA ATENDIDO SUS NECESIDADES DURANTE EL ESTADO DE EMERGENCIA? DE QUE FORMA? -->
+				<div class="form-group covid-atencion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="atencion">LA EPS HA ATENDIDO SUS NECESIDADES DURANTE EL ESTADO DE EMERGENCIA? DE QUE FORMA?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(atencion)%%>
+					</div>
+				</div>
+
+				<!-- Field: Le han ordenado tratamiento medico durante el periodo de Emergencia? -->
+				<div class="form-group covid-tratamiento">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tratamiento">Le han ordenado tratamiento medico durante el periodo de Emergencia?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tratamiento)%%>
+					</div>
+				</div>
+
+				<!-- Field: LE HAN HECHO ENTREGA DE MEDICAMENTOS EN SU DOMICILIO DURANTE LA EMERGENCIA? -->
+				<div class="form-group covid-medicamentos">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="medicamentos">LE HAN HECHO ENTREGA DE MEDICAMENTOS EN SU DOMICILIO DURANTE LA EMERGENCIA?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(medicamentos)%%>
+					</div>
+				</div>
+
+				<!-- Field: La he EPS ha hecho seguimiento sobre su condici&#243;n de salud? -->
+				<div class="form-group covid-vigilancia">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="vigilancia">La he EPS ha hecho seguimiento sobre su condici&#243;n de salud?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(vigilancia)%%>
+					</div>
+				</div>
+
+				<!-- Field: Cual es su nivel de satisfacci&#243;n con su EPS? -->
+				<div class="form-group covid-percepcion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="percepcion">Cual es su nivel de satisfacci&#243;n con su EPS?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(percepcion)%%>
+					</div>
+				</div>
+
+				<!-- Field: Recientemente ha solicitado citas de Medicina General? -->
+				<div class="form-group covid-medicinageneral">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<div class="checkbox">
+							<label for="medicinageneral"><input type="checkbox" name="medicinageneral" id="medicinageneral" value="1" <%%CHECKED(medicinageneral)%%>> Recientemente ha solicitado citas de Medicina General?</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: A cuantos d&#237;as le fue dada la ultima cita solicitada? -->
+				<div class="form-group covid-oportunidad">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="oportunidad">A cuantos d&#237;as le fue dada la ultima cita solicitada?</label>
+					<div class="col-lg-9">
+						<%%COMBO(oportunidad)%%>
+					</div>
+				</div>
+
+				<!-- Field: Observacion -->
+				<div class="form-group covid-observacion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="observacion">Observacion</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="observacion" id="observacion" rows=" 5"><%%VALUE(observacion)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Estado -->
+				<div class="form-group covid-status">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="status">Estado<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#status-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="status-description"><div class="alert alert-info bspacer-xs">Se logra contacto<br>Usuario presenta la encuesta<br>Usuario es del municipio</div></span>
+						<%%COMBO(status)%%>
+					</div>
+				</div>
+
+				<!-- Field: Asignado a -->
+				<div class="form-group covid-asignado">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Asignado a</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="asignado"><%%VALUE(asignado)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="covid_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) {
+				AppGini.once({
+					condition: function() {
+						return $j('.form-group.covid-tipodoc')
+									.find('.nicEdit-main, .select2-container, input[type=radio]')
+									.length > 0;
+					},
+					action: function() {
+						$j('#covid_dv_container-loading').addClass('hidden');
+						$j('#covid_dv_container').removeClass('hidden');
+						AppGini.focusFormElement('covid', 'tipodoc');
+					},
+					timeout:  5000,
+					doActionOnTimeout:  true
+				});
+			} else {
+				$j('#covid_dv_container-loading').addClass('hidden');
+				$j('#covid_dv_container').removeClass('hidden');
+			}
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'covid',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=covid&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=covid&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

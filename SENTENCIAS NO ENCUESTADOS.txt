@@ -1,0 +1,114 @@
+UPDATE `membership_userrecords` SET `memberID`='noatendidos' WHERE `tableName`='covid' and `pkValue` IN (SELECT id FROM covid where status='No Encuestado' AND responsable IS NULL)
+
+UPDATE `membership_userrecords` SET `memberID`='noatendidos' WHERE `tableName`='pqr' and `pkValue` IN (SELECT id FROM pqr where status='No Contactado' AND encargado IS NULL)
+
+UPDATE `membership_userrecords` SET `memberID`='verificados' WHERE `tableName`='pqr' and `pkValue` IN (SELECT id FROM pqr where condicion='CERRADA' AND indicador IS NOT NULL)
+
+UPDATE `membership_userrecords` SET `memberID`='sindyrangel' WHERE `memberID`='sindygalvis' AND `pkValue` IN (SELECT id FROM pqr where encargado IS NULL) LIMIT 623
+
+UPDATE `membership_userrecords` SET `memberID`='sindygalvis' WHERE `tableName`='pqr' and `memberID`='' LIMIT 235
+
+JCGEH9
+
+UPDATE `pqr` SET `status`='Contactado' WHERE `encargado` IS NOT NULL
+
+UPDATE `pqr` SET `encargado`='dianaquintero' AND `status`='' WHERE `encargado`='admin'
+
+UPDATE `membership_userrecords` SET `memberID`='lisedhernandez' WHERE `tableName`='pqr' and `memberID`!='gippsydavila' and `pkValue` IN (SELECT id FROM pqr where status='' AND encargado IS NULL) LIMIT 30
+
+
+908526
+
+SELECT * FROM pqr WHERE MONTH(fechainc) = 10 AND YEAR(fechainc) = 2020
+
+SELECT CONCAT (MONTH(fechainc), ' ', YEAR(fechainc)) FROM pqr
+
+UPDATE pqr
+SET    `periodo` = CASE
+         WHEN MONTH(`fechainc`)<3 THEN CONCAT ("1er Trimestre - ", YEAR(fechainc))
+         WHEN MONTH(`fechainc`)<6 AND MONTH(`fechainc`)>3 THEN CONCAT ("2do Trimestre - ", YEAR(fechainc))
+         WHEN MONTH(`fechainc`)<9 AND MONTH(`fechainc`)>6 THEN CONCAT ("3er Trimestre - ", YEAR(fechainc))
+         ELSE CONCAT ("4to Trimestre - ", YEAR(fechainc))
+       END
+WHERE `fechainc` IS NOT NULL
+
+UPDATE pqr
+SET    `dias` = CASE
+         WHEN `condicion`='CERRADA' THEN DATEDIFF(`cierre`-`fechainc`)
+         ELSE NULL
+       END
+WHERE `fechainc` IS NOT NULL
+
+SELECT `custom1` FROM `membership_users` WHERE `memberID` IN (SELECT `memberID` FROM `membership_userrecords` WHERE `pkValue` IN (SELECT id FROM pqr))
+
+select `custom1` FROM `membership_users` LEFT JOIN `membership_userrecords` ON `membership_userrecords`.`memberID`=`membership_users`.`memberID` LEFT JOIN `pqr` ON `pqr`.`id`=`membership_userrecords`.`pkValue` 
+WHERE `pqr`.`id`='%ID%'
+
+UPDATE `pqr` SET `pqr`.`asignado`=(select `custom1` FROM `membership_users` LEFT JOIN `membership_userrecords` ON `membership_userrecords`.`memberID`=`membership_users`.`memberID` LEFT JOIN `pqr` ON `pqr`.`id`=`membership_userrecords`.`pkValue` WHERE `pqr`.`id`='%ID%')
+
+UPDATE pqr SET asignado=(SELECT * FROM (select `custom1` FROM `membership_users` LEFT JOIN `membership_userrecords` ON `membership_userrecords`.`memberID`=`membership_users`.`memberID` LEFT JOIN `pqr` ON `pqr`.`id`=`membership_userrecords`.`pkValue` WHERE `pqr`.`id`='%ID%' )tblTmp)
+
+select nombres from pqr left join oficios on oficios.numero=pqr.id were oficios.id=6
+
+SELECT `oficio` FROM `pqr` WHERE `oficio` NOT IN (SELECT `oficio` FROM `oficios`)
+
+
+<script>
+var is_chrome = function () { return Boolean(window.chrome); }
+if(is_chrome) 
+{
+   window.print();
+   setTimeout(function(){window.close();}, 10000); 
+   //give them 10 seconds to print, then close
+}
+else
+{
+   window.print();
+   window.close();
+}
+</script>
+</html>
+<body onLoad="loadHandler();">
+
+
+$page_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // to grab the current url
+$html = file_get_contents($page_url); 
+
+
+1,831,000
+
+IF (condicion="ABIERTA" AND (fallecido=1),1,0)
+
+
+CASE 
+    WHEN condicion Code = "CERRADA" AND fallecido= 1 
+    THEN 1
+    ELSE 0 
+END
+
+INSERT IGNORE INTO membership_userrecords (`pkValue`,`tableName`)
+SELECT id, "mails" from mails
+
+
+UPDATE membership_userrecords 
+SET membership_userrecords.groupID = (
+    SELECT mails.group 
+    FROM mails
+    WHERE mails.id = membership_userrecords.pkValue and mails.group is not null)   
+    WHERE `tableName`='mails';
+
+UPDATE membership_userrecords 
+SET membership_userrecords.memberID = (
+    SELECT mails.user
+    FROM mails
+    WHERE mails.id = membership_userrecords.pkValue and mails.user is not null)   
+    WHERE `tableName`='mails';
+
+UPDATE mails set `user`="simdyrangel",`groupID`=80 where `idpqr` in (7,34,41,128)
+
+SELECT DISTINCT `idpqr` from mails where `user`="yanoryquintero"
+
+
+
+select `descripcion` FROM `cie10` LEFT JOIN `pqr` ON `pqr`.`enfermedad`=`cie10`.`cie10`
+WHERE `membership_userrecords`.`tableName`='pqr' and `pqr`.`id`='%ID%'

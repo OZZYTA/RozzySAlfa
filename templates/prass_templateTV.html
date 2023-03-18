@@ -1,0 +1,21 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the prass_init() hook (in hooks/prass.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="prass-fecha-<%%VALUE(id)%%>" class="prass-fecha"><%%SELECT%%><%%VALUE(fecha)%%><%%ENDSELECT%%></td>
+		<td id="prass-documento-<%%VALUE(id)%%>" class="prass-documento"><%%SELECT%%><%%VALUE(documento)%%><%%ENDSELECT%%></td>
+		<td id="prass-nombrepaciente-<%%VALUE(id)%%>" class="prass-nombrepaciente"><%%SELECT%%><%%VALUE(nombrepaciente)%%><%%ENDSELECT%%></td>
+		<td id="prass-regimen-<%%VALUE(id)%%>" class="prass-regimen"><%%SELECT%%><%%VALUE(regimen)%%><%%ENDSELECT%%></td>
+		<td id="prass-eps-<%%VALUE(id)%%>" class="prass-eps"><%%SELECT%%><%%VALUE(eps)%%><%%ENDSELECT%%></td>
+		<td id="prass-direccion-<%%VALUE(id)%%>" class="prass-direccion"><%%SELECT%%><%%VALUE(direccion)%%><%%ENDSELECT%%></td>
+		<td id="prass-telefono-<%%VALUE(id)%%>" class="prass-telefono"><%%SELECT%%><%%VALUE(telefono)%%><%%ENDSELECT%%></td>
+		<td id="prass-consulta-<%%VALUE(id)%%>" class="prass-consulta"><%%SELECT%%><%%VALUE(consulta)%%><%%ENDSELECT%%></td>
+		<td id="prass-fechaconsulta-<%%VALUE(id)%%>" class="prass-fechaconsulta"><%%SELECT%%><%%VALUE(fechaconsulta)%%><%%ENDSELECT%%></td>
+		<td id="prass-prueba-<%%VALUE(id)%%>" class="prass-prueba"><%%SELECT%%><%%VALUE(prueba)%%><%%ENDSELECT%%></td>
+		<td id="prass-fechaprueba-<%%VALUE(id)%%>" class="prass-fechaprueba"><%%SELECT%%><%%VALUE(fechaprueba)%%><%%ENDSELECT%%></td>
+		<td id="prass-estado-<%%VALUE(id)%%>" class="prass-estado"><%%SELECT%%><%%VALUE(estado)%%><%%ENDSELECT%%></td>
+		<td id="prass-observacion-<%%VALUE(id)%%>" class="prass-observacion"><%%SELECT%%><%%VALUE(observacion)%%><%%ENDSELECT%%></td>
+		<td id="prass-encargado-<%%VALUE(id)%%>" class="prass-encargado"><%%SELECT%%><%%VALUE(encargado)%%><%%ENDSELECT%%></td>

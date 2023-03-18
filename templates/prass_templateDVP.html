@@ -1,0 +1,120 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Documento -->
+		<div class="form-group prass-documento" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Documento</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(documento)%%></div>
+			</div>
+		</div>
+		<!-- Field: Nombre del usuario -->
+		<div class="form-group prass-nombrepaciente" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Nombre del usuario</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombrepaciente)%%></div>
+			</div>
+		</div>
+		<!-- Field: Regimen -->
+		<div class="form-group prass-regimen" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="regimen<%%RND1%%>"><%%COMBOTEXT(regimen)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Eps -->
+		<div class="form-group prass-eps" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Eps</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="eps<%%RND1%%>"><%%COMBOTEXT(eps)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Direccion -->
+		<div class="form-group prass-direccion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Direccion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(direccion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Telefono -->
+		<div class="form-group prass-telefono" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(telefono)%%></div>
+			</div>
+		</div>
+		<!-- Field: Recibi&#243; Consulta para atenci&#243;n por sospecha o contagio del COVID? -->
+		<div class="form-group prass-consulta" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Recibi&#243; Consulta para atenci&#243;n por sospecha o contagio del COVID?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(consulta)%%></div>
+			</div>
+		</div>
+		<!-- Field: En qu&#233; fecha fue dicha consulta? -->
+		<div class="form-group prass-fechaconsulta" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">En qu&#233; fecha fue dicha consulta?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechaconsulta)%%></div>
+			</div>
+		</div>
+		<!-- Field: Se realiz&#243; prueba confirmatoria para el COVID? -->
+		<div class="form-group prass-prueba" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Se realiz&#243; prueba confirmatoria para el COVID?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(prueba)%%></div>
+			</div>
+		</div>
+		<!-- Field: En qu&#233; fecha se le realiz&#243; la prueba confirmatoria? -->
+		<div class="form-group prass-fechaprueba" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">En qu&#233; fecha se le realiz&#243; la prueba confirmatoria?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechaprueba)%%></div>
+			</div>
+		</div>
+		<!-- Field: Estado -->
+		<div class="form-group prass-estado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Estado</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(estado)%%></div>
+			</div>
+		</div>
+		<!-- Field: Observacion -->
+		<div class="form-group prass-observacion" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Observacion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(observacion)%%></div>
+			</div>
+		</div>
+		<!-- Field: Encargado -->
+		<div class="form-group prass-encargado" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Encargado</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(encargado)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

@@ -1,0 +1,574 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/Encuesta-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="Encuesta_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="Encuesta_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="Encuesta_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Tipo de Documento: -->
+				<div class="form-group Encuesta-tipoid">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tipoid">Tipo de Documento:<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tipoid)%%>
+					</div>
+				</div>
+
+				<!-- Field: Numero de Documento -->
+				<div class="form-group Encuesta-doc">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="doc">Numero de Documento<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="doc" id="doc" value="<%%VALUE(doc)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Nombres -->
+				<div class="form-group Encuesta-nombres">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nombres">Nombres<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="nombres" id="nombres" value="<%%VALUE(nombres)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Apellidos -->
+				<div class="form-group Encuesta-apellidos">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="apellidos">Apellidos<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="apellidos" id="apellidos" value="<%%VALUE(apellidos)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: EPS -->
+				<div class="form-group Encuesta-eps">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="eps" data-parent_link="view_parent_modal">EPS<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(eps)%%><%%PLINK(eps)%%><%%ADDNEW(eps)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: IPS Primaria -->
+				<div class="form-group Encuesta-ipsprim">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ipsprim" data-parent_link="view_parent_modal">IPS Primaria</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(ipsprim)%%><%%PLINK(ipsprim)%%><%%ADDNEW(ips)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Al Utilizar el Servicio &#191;El trato Fue? -->
+				<div class="form-group Encuesta-tratoser">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tratoser">Al Utilizar el Servicio &#191;El trato Fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tratoser)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;La asignaci&#243;n de citas para el servicio fue? -->
+				<div class="form-group Encuesta-cita">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="cita">&#191;La asignaci&#243;n de citas para el servicio fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(cita)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;El trato que recibi&#243; y el tiempo dedicado por parte del personal asistencial fue? -->
+				<div class="form-group Encuesta-tratoasis">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="tratoasis">&#191;El trato que recibi&#243; y el tiempo dedicado por parte del personal asistencial fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(tratoasis)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;La explicaci&#243;n dada por el profesional de la salud, sobre el cuidado tratamiento y mantenimiento de la salud fue? -->
+				<div class="form-group Encuesta-expprof">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="expprof">&#191;La explicaci&#243;n dada por el profesional de la salud, sobre el cuidado tratamiento y mantenimiento de la salud fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(expprof)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Las condiciones de bioseguridad (uso de tapabocas, canecas, guantes, etc) utilizadas por los profesionales de la salud fueron? -->
+				<div class="form-group Encuesta-bioser">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="bioser">&#191;Las condiciones de bioseguridad (uso de tapabocas, canecas, guantes, etc) utilizadas por los profesionales de la salud fueron?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(bioser)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;C&#243;mo califica el &#225;rea donde fue antendido en cuanto a aseo y comodidad? -->
+				<div class="form-group Encuesta-area">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="area">&#191;C&#243;mo califica el &#225;rea donde fue antendido en cuanto a aseo y comodidad?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(area)%%>
+					</div>
+				</div>
+
+				<!-- Field: Lo han invitado a programas de Promoci&#243;n y Prevenci&#243;n? -->
+				<div class="form-group Encuesta-pyp">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="pyp">Lo han invitado a programas de Promoci&#243;n y Prevenci&#243;n?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(pyp)%%>
+					</div>
+				</div>
+
+				<!-- Field: Asiste a Control Prenatal? (Solo mujeres embarazadas) -->
+				<div class="form-group Encuesta-prenatal">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="prenatal">Asiste a Control Prenatal? (Solo mujeres embarazadas)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(prenatal)%%>
+					</div>
+				</div>
+
+				<!-- Field: Sus hijos menores de 10 a&#241;os asisten a control de crecimiento y desarrollo? -->
+				<div class="form-group Encuesta-cyd">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="cyd">Sus hijos menores de 10 a&#241;os asisten a control de crecimiento y desarrollo?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(cyd)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Sus hijos menores de 5 a&#241;os han sido vacunados? -->
+				<div class="form-group Encuesta-vacunas">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="vacunas">&#191;Sus hijos menores de 5 a&#241;os han sido vacunados?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(vacunas)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Qu&#233; m&#233;todo de planificaci&#243;n familiar usa? -->
+				<div class="form-group Encuesta-pfm">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="pfm">&#191;Qu&#233; m&#233;todo de planificaci&#243;n familiar usa?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(pfm)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Cu&#225;ndo fue su &#250;ltima citolog&#237;a? -->
+				<div class="form-group Encuesta-citologia">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="citologia">&#191;Cu&#225;ndo fue su &#250;ltima citolog&#237;a?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(citologia)%%>
+					</div>
+				</div>
+
+				<!-- Field: Califique su satisfacci&#243;n con el servicio recibido en el centro de salud -->
+				<div class="form-group Encuesta-sservicio">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sservicio">Califique su satisfacci&#243;n con el servicio recibido en el centro de salud<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(sservicio)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Especialmente con cual de los servicios se ha sentido incomodo? -->
+				<div class="form-group Encuesta-incomodo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="incomodo">&#191;Especialmente con cual de los servicios se ha sentido incomodo?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(incomodo)%%>
+					</div>
+				</div>
+
+				<!-- Field: Otro -->
+				<div class="form-group Encuesta-otro">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="otro">Otro</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="otro" id="otro" value="<%%VALUE(otro)%%>">
+					</div>
+				</div>
+
+				<!-- Field: &#191;Por qu&#233;? -->
+				<div class="form-group Encuesta-why">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="why">&#191;Por qu&#233;?</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="why" id="why" rows=" 5"><%%VALUE(why)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Lo han atendido oportunamente cuando se ha presentado una urgencia? -->
+				<div class="form-group Encuesta-urgencia">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="urgencia">&#191;Lo han atendido oportunamente cuando se ha presentado una urgencia?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(urgencia)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;La asignaci&#243;n de citas ha sido oportuna? -->
+				<div class="form-group Encuesta-citaoportuna">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="citaoportuna">&#191;La asignaci&#243;n de citas ha sido oportuna?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(citaoportuna)%%>
+					</div>
+				</div>
+
+				<!-- Field: Al utilizar el servicio &#191;el trato que recibi&#243; fue? -->
+				<div class="form-group Encuesta-aspectoeps">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="aspectoeps">Al utilizar el servicio &#191;el trato que recibi&#243; fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(aspectoeps)%%>
+					</div>
+				</div>
+
+				<!-- Field: Las condiciones fisicas en las instalaciones de la EPS son? -->
+				<div class="form-group Encuesta-fisicas">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="fisicas">Las condiciones fisicas en las instalaciones de la EPS son?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(fisicas)%%>
+					</div>
+				</div>
+
+				<!-- Field: El &#225;rea donde fue atendido en cuanto a aseo, higiene y comodidad es: -->
+				<div class="form-group Encuesta-aseo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="aseo">El &#225;rea donde fue atendido en cuanto a aseo, higiene y comodidad es:<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(aseo)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;La capacitaci&#243;n brindada por la EPS sobre sus derechos y deberes fue? -->
+				<div class="form-group Encuesta-capacitacion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="capacitacion">&#191;La capacitaci&#243;n brindada por la EPS sobre sus derechos y deberes fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(capacitacion)%%>
+					</div>
+				</div>
+
+				<!-- Field: La gesti&#243;n de las autorizaciones y/o tratamientos por parte de la EPS fue? -->
+				<div class="form-group Encuesta-autorizaciones">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="autorizaciones">La gesti&#243;n de las autorizaciones y/o tratamientos por parte de la EPS fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(autorizaciones)%%>
+					</div>
+				</div>
+
+				<!-- Field: Ud considera que la EPS en general es? -->
+				<div class="form-group Encuesta-general">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="general">Ud considera que la EPS en general es?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(general)%%>
+					</div>
+				</div>
+
+				<!-- Field: El personal de la EPS lo atiende oportunamente dentro del horario de atenci&#243;n al p&#250;blico? -->
+				<div class="form-group Encuesta-horario">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="horario">El personal de la EPS lo atiende oportunamente dentro del horario de atenci&#243;n al p&#250;blico?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(horario)%%>
+					</div>
+				</div>
+
+				<!-- Field: El personal administrativo de la EPS le entreg&#243; copia del formulario de afiliaci&#243;n y/o traslado? -->
+				<div class="form-group Encuesta-formulario">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="formulario">El personal administrativo de la EPS le entreg&#243; copia del formulario de afiliaci&#243;n y/o traslado?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(formulario)%%>
+					</div>
+				</div>
+
+				<!-- Field: Como fue el trato que recibio por parte del personal de famarcia que lo ha atendido? -->
+				<div class="form-group Encuesta-farmacia">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="farmacia">Como fue el trato que recibio por parte del personal de famarcia que lo ha atendido?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(farmacia)%%>
+					</div>
+				</div>
+
+				<!-- Field: Las condiciones fisicas en la prestaci&#243;n del servicio de farmacia y/o drogueria fue? -->
+				<div class="form-group Encuesta-fisicasfarma">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="fisicasfarma">Las condiciones fisicas en la prestaci&#243;n del servicio de farmacia y/o drogueria fue?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(fisicasfarma)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;La oportunidad en la prestaci&#243;n del servicio de farmacia y/o droguer&#237;a fue?  -->
+				<div class="form-group Encuesta-oporfarmacia">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="oporfarmacia">&#191;La oportunidad en la prestaci&#243;n del servicio de farmacia y/o droguer&#237;a fue? <span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(oporfarmacia)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Le entregaron la totalidad de los medicamentos?  -->
+				<div class="form-group Encuesta-totalidad">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="totalidad">&#191;Le entregaron la totalidad de los medicamentos? <span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(totalidad)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Le gustar&#237;a que la EPS cambiara el servicio de farmacia y/o droguer&#237;a? -->
+				<div class="form-group Encuesta-cambio">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="cambio">&#191;Le gustar&#237;a que la EPS cambiara el servicio de farmacia y/o droguer&#237;a?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(cambio)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;Cu&#225;ntas veces ha tenido que volver a la farmacia y/o droguer&#237;a por medicamentos pendientes? -->
+				<div class="form-group Encuesta-volver">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="volver">&#191;Cu&#225;ntas veces ha tenido que volver a la farmacia y/o droguer&#237;a por medicamentos pendientes?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(volver)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;La persona encargada de suministrar la medicina, le orienta en el consumo y conservaci&#243;n de los medicamentos?  -->
+				<div class="form-group Encuesta-orientacion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="orientacion">&#191;La persona encargada de suministrar la medicina, le orienta en el consumo y conservaci&#243;n de los medicamentos? <span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(orientacion)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;En qu&#233; condiciones le entregan a usted el medicamento en el servicio de farmacia y/o droguer&#237;a? -->
+				<div class="form-group Encuesta-embalaje">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="embalaje">&#191;En qu&#233; condiciones le entregan a usted el medicamento en el servicio de farmacia y/o droguer&#237;a?<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(embalaje)%%>
+					</div>
+				</div>
+
+				<!-- Field: &#191;El personal que lo atendi&#243; revis&#243; con usted los medicamentos antes de hacer la entrega?  -->
+				<div class="form-group Encuesta-revision">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="revision">&#191;El personal que lo atendi&#243; revis&#243; con usted los medicamentos antes de hacer la entrega? <span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(revision)%%>
+					</div>
+				</div>
+
+				<!-- Field: Observaciones -->
+				<div class="form-group Encuesta-observaciones">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="observaciones">Observaciones <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#observaciones-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="observaciones-description"><div class="alert alert-info bspacer-xs">Tiene alguna observaci&#243;n?</div></span>
+						<textarea class="form-control" name="observaciones" id="observaciones" rows=" 5"><%%VALUE(observaciones)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: Realizada por -->
+				<div class="form-group Encuesta-user">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Realizada por</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="user"><%%VALUE(user)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="Encuesta_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) {
+				AppGini.once({
+					condition: function() {
+						return $j('.form-group.Encuesta-tipoid')
+									.find('.nicEdit-main, .select2-container, input[type=radio]')
+									.length > 0;
+					},
+					action: function() {
+						$j('#Encuesta_dv_container-loading').addClass('hidden');
+						$j('#Encuesta_dv_container').removeClass('hidden');
+						AppGini.focusFormElement('Encuesta', 'tipoid');
+					},
+					timeout:  5000,
+					doActionOnTimeout:  true
+				});
+			} else {
+				$j('#Encuesta_dv_container-loading').addClass('hidden');
+				$j('#Encuesta_dv_container').removeClass('hidden');
+			}
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'Encuesta',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=Encuesta&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=Encuesta&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

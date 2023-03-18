@@ -1,0 +1,18 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the soportes_init() hook (in hooks/soportes.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="soportes-doc-<%%VALUE(id)%%>" class="soportes-doc"><%%SELECT%%><%%VALUE(doc)%%><%%ENDSELECT%%></td>
+		<td id="soportes-soporte1-<%%VALUE(id)%%>" class="soportes-soporte1"><a href="link.php?t=soportes&f=soporte1&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(soporte1)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-picture text-info"></i></a></td>
+		<td id="soportes-soporte2-<%%VALUE(id)%%>" class="soportes-soporte2"><a href="link.php?t=soportes&f=soporte2&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(soporte2)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-picture text-info"></i></a></td>
+		<td id="soportes-soporte3-<%%VALUE(id)%%>" class="soportes-soporte3"><a href="link.php?t=soportes&f=soporte3&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(soporte3)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-picture text-info"></i></a></td>
+		<td id="soportes-soporte4-<%%VALUE(id)%%>" class="soportes-soporte4"><a href="link.php?t=soportes&f=soporte4&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(soporte4)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-picture text-info"></i></a></td>
+		<script>$j(function() {
+			var e_soporte1 = '<%%VALUE(soporte1)%%>'; if(e_soporte1 == '' || e_soporte1 == '&nbsp;') $j(/*<*/ '#soportes-soporte1-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_soporte2 = '<%%VALUE(soporte2)%%>'; if(e_soporte2 == '' || e_soporte2 == '&nbsp;') $j(/*<*/ '#soportes-soporte2-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_soporte3 = '<%%VALUE(soporte3)%%>'; if(e_soporte3 == '' || e_soporte3 == '&nbsp;') $j(/*<*/ '#soportes-soporte3-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_soporte4 = '<%%VALUE(soporte4)%%>'; if(e_soporte4 == '' || e_soporte4 == '&nbsp;') $j(/*<*/ '#soportes-soporte4-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>

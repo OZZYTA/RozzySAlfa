@@ -1,0 +1,2 @@
+Error checking: 
+Field 'pqr.consecutivo' has no data type. Please choose a data type for that field

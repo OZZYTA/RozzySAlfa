@@ -1,0 +1,28 @@
+$j(function(){
+    $j('#patologia').click(function(){
+         if($j(this).prop('checked')){
+             /* hide some stuff */
+             $j("label[for='s2id_autogen6']").parent().show();
+         }else{
+             /* show some stuff */
+             $j("label[for='s2id_autogen6']").parent().hide();
+         }
+    });
+});
+
+
+
+
+function change_to_notplayable(covid, ids){
+
+	var url = 'change-status.php?table=' + covid + '&status=No Encuestado';
+	for(var i = 0; i < ids.length; i++){
+		url = url + '&' 
+			+ encodeURI('ids[]') + '=' 
+			+ encodeURIComponent(ids[i]);
+	}
+	
+	window.open(url);
+}
+
+

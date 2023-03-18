@@ -1,0 +1,104 @@
+<?php
+	/*
+	* You can add custom links to the navigation menu by appending them here ...
+	* The format for each link is:
+		$navLinks[] = array(
+			'url' => 'path/to/link', 
+			'title' => 'Link title', 
+			'groups' => array('group1', 'group2'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'path/to/icon',
+			'table_group' => 0, // optional index of table group, default is 0
+		);
+	*/
+
+
+	/* summary_reports links */
+	
+
+$navLinks[] = array(
+			'url' => 'pqr_view.php', 
+			'title' => 'PQRs TOTALES', 
+			'groups' => array('Admins'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/user_comment.png',
+			'table_group' => ('PQR'), // optional index of table group, default is 0
+		);
+
+$navLinks[] = array(
+			'url' => 'pqr_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=19&FilterOperator%5B1%5D=equal-to&FilterValue%5B1%5D=ABIERTA', 
+			'title' => 'PQRs ABIERTAS', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/nameboard_open.png',
+			'table_group' => ('PQR'), // optional index of table group, default is 0
+		);
+
+$navLinks[] = array(
+			'url' => 'pqr_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=29&FilterOperator%5B1%5D=is-empty&FilterValue%5B1%5D=&FilterAnd%5B2%5D=and&FilterField%5B2%5D=18&FilterOperator%5B2%5D=not-equal-to&FilterValue%5B2%5D=ABIERTA', 
+			'title' => 'PQRs POR VERIFICAR', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/document_prepare.png',
+			'table_group' => ('PQR'), // optional index of table group, default is 0
+		);
+
+$navLinks[] = array(
+			'url' => 'pqr_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=19&FilterOperator%5B1%5D=equal-to&FilterValue%5B1%5D=CERRADA&FilterAnd%5B2%5D=and&FilterField%5B2%5D=29&FilterOperator%5B2%5D=equal-to&FilterValue%5B2%5D=Contactado', 
+			'title' => 'PQRs FINALIZADAS', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/check_box.png',
+			'table_group' => ('PQR'), // optional index of table group, default is 0
+		);
+
+$navLinks[] = array(
+			'url' => 'pqr_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=29&FilterOperator%5B1%5D=equal-to&FilterValue%5B1%5D=No+Contactado', 
+			'title' => 'PQRs NO PROCESADAS', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/group_error.png',
+			'table_group' => ('PQR'), // optional index of table group, default is 0
+		);
+
+$navLinks[] = array(
+			'url' => 'http://15.228.79.132:8501/" target="_blank', 
+			'title' => 'DASHBOARD', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/chart_pie_alternative.png',
+			'table_group' => ('PQR'), // optional index of table group, default is 0
+		);
+
+		$navLinks[] = array(
+			'url' => 'covid_view.php', 
+			'title' => 'ENCUESTAS DE CUMPLIMIENTO TOTALES', 
+			'groups' => array('Admins'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/health.png',
+			'table_group' => 1, // optional index of table group, default is 0
+		);
+
+		$navLinks[] = array(
+			'url' => 'covid_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=28&FilterOperator%5B1%5D=is-empty&FilterValue%5B1%5D=', 
+			'title' => 'ENCUESTAS DE CUMPLIMIENTO PENDIENTES', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/participation_rate.png',
+			'table_group' => 1, // optional index of table group, default is 0
+		);
+
+			$navLinks[] = array(
+			'url' => 'covid_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=28&FilterOperator%5B1%5D=equal-to&FilterValue%5B1%5D=Encuestado', 
+			'title' => 'ENCUESTAS DE CUMPLIMIENTO REALIZADAS', 
+			'groups' => array('Admins'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/tick.png',
+			'table_group' => 1, // optional index of table group, default is 0
+		);
+
+			$navLinks[] = array(
+			'url' => 'covid_view.php?SortField=&SortDirection=&FilterAnd%5B1%5D=and&FilterField%5B1%5D=28&FilterOperator%5B1%5D=equal-to&FilterValue%5B1%5D=No+Encuestado', 
+			'title' => 'ENCUESTAS DE CUMPLIMIENTO NO LOGRADAS', 
+			'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+			'icon' => 'resources/table_icons/exclamation.png',
+			'table_group' => 1, // optional index of table group, default is 0
+		);
+
+
+$navLinks[] = array(
+		'url' => 'hooks/summary-reports-list.php',
+		'title' => 'Summary Reports',
+		'groups' => array('*'),
+		'icon' => 'hooks/summary_reports-logo-md.png'
+	);

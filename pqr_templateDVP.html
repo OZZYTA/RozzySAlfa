@@ -1,0 +1,143 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">&nbsp;
+	</h3>
+  <table width="100%" border="0">
+    <tbody>
+      <tr>
+        <td><h2><strong>PQR #</strong>
+          <%%VALUE(id)%%>
+        </h2></td>
+        <td><img src="logo.png" alt="" width="220" height="111" align="right"/></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><div class="hidden-print pull-right">
+          <div class="btn-group">
+            <button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i>
+              <%%TRANSLATION(Print)%%>
+              </button>
+            <button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i>
+              <%%TRANSLATION(Cancel Printing)%%>
+              </button>
+          </div>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td><label class="col-xs-3 control-label">Fecha</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fecha)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Queja SAC?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="sac" id="sac" value="1" <%%CHECKED(sac)%%> readonly></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Tipo de Doc</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipoid)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Numero de Identificaci&#243;n:</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(doc)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Nombres</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(nombres)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Apellidos</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(apellidos)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Telefono</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(telefono)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Direccion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(direccion)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Tipo de PQR</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(tipopqr)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Motivo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(motivo)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Fecha de PQR</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(fechainc)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">EPS</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(eps)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Servicio</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(servicio)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Regimen</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(regimen)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label class="col-xs-3 control-label">Descripcion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(descripcion)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Estado</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(estado)%%></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Condicion</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(condicion)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td><label class="col-xs-3 control-label">Notificada a la Superintendencia de Salud</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="notificada" id="notificada" value="1" <%%CHECKED(notificada)%%> <readonly></div>
+			</div></td>
+        <td><label class="col-xs-3 control-label">Notificada a la EPS?</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="remision" id="remision" value="1" <%%CHECKED(remision)%%> <readonly></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2" text-align: justify><label class="col-xs-3 control-label">Detalle</label>
+			<div class="col-xs-9">
+				<div class="form-control-static" ><%%VALUE(detalle1)%%></div>
+				<div class="form-control-static"><%%VALUE(detalle2)%%></div>
+				<div class="form-control-static"><%%VALUE(detalle3)%%></div>
+			</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label class="col-xs-3 control-label">Responsable</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(asignado)%%></div>
+			</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

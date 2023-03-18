@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media print {
+  .noPrint{
+    display:none;
+  }
+}
+h1{
+  color:#f6f6;
+}
